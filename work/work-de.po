@@ -130,13 +130,40 @@ msgid "pending"
 msgstr "unerledigt"
 
 #: zzbrick_tables/tasks.php
-msgid ""
-msgstr ""
+msgid "Period"
+msgstr "Zeitraum"
 
 #: zzbrick_tables/tasks.php
-msgid ""
-msgstr ""
+msgid "long ago"
+msgstr "vor langer Zeit"
 
+#: zzbrick_tables/tasks.php
+msgid "minus four weeks"
+msgstr "minus vier Wochen"
+
+#: zzbrick_tables/tasks.php
+msgid "last week"
+msgstr "letzte Woche"
+
+#: zzbrick_tables/tasks.php
+msgid "this week"
+msgstr "diese Woche"
+
+#: zzbrick_tables/tasks.php
+msgid "next week"
+msgstr "nächste Woche"
+
+#: zzbrick_tables/tasks.php
+msgid "plus four weeks"
+msgstr "plus vier Wochen"
+
+#: zzbrick_tables/tasks.php
+msgid "far away"
+msgstr "weit weg"
+
+#: zzbrick_tables/tasks.php
+msgid "no deadline"
+msgstr "ohne Frist"
 
 #: zzbrick_tables/tasks-categories.php
 msgid "Task Categories"
