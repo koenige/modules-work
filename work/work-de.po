@@ -42,6 +42,10 @@ msgid "Tags"
 msgstr "Stichworte"
 
 #: zzbrick_tables/tasks.php
+msgid "Tag"
+msgstr "Stichwort"
+
+#: zzbrick_tables/tasks.php
 msgid "Task for"
 msgstr "Aufgabe für"
 
