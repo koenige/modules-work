@@ -120,21 +120,21 @@ $zz['fields'][11]['sql'] = sprintf('SELECT contact_id
 		, contact, identifier
 	FROM contacts
 	WHERE contact_category_id = %d
-	ORDER BY contact', wrap_category_id('contacts/person'));
+	ORDER BY contact', wrap_category_id('contact/person'));
 $zz['fields'][11]['key_field_name'] = 'contact_id';
 $zz['fields'][11]['exclude_from_search'] = true;
 $zz['fields'][11]['hide_in_list'] = true;
 $zz['fields'][11]['default'] = $_SESSION['user_id'];
 
 /*
-$zz['fields'][12]['field_name'] = 'reminder';
-$zz['fields'][12]['type'] = 'option';
-$zz['fields'][12]['type_detail'] = 'select';
-$zz['fields'][12]['enum'] = ['yes', 'no'];
-$zz['fields'][12]['enum_title'] = [wrap_text('yes'), wrap_text('no')];
-$zz['fields'][12]['default'] = 'nein';
-$zz['fields'][12]['if']['add']['default'] = 'yes';
-$zz['fields'][12]['explanation'] = 'If “yes”, the task is sent as an email to the people involved.';
+$zz['fields'][13]['field_name'] = 'reminder';
+$zz['fields'][13]['type'] = 'option';
+$zz['fields'][13]['type_detail'] = 'select';
+$zz['fields'][13]['enum'] = ['yes', 'no'];
+$zz['fields'][13]['enum_title'] = [wrap_text('yes'), wrap_text('no')];
+$zz['fields'][13]['default'] = 'nein';
+$zz['fields'][13]['if']['add']['default'] = 'yes';
+$zz['fields'][13]['explanation'] = 'If “yes”, the task is sent as an email to the people involved.';
 */
 
 $zz['fields'][65]['field_name'] = 'sort_order';
@@ -186,7 +186,6 @@ $zz['filter'][3]['sql'] = 'SELECT DISTINCT category_id, SUBSTRING(path, 6)
 	FROM todos_categories
 	LEFT JOIN categories USING (category_id)
 	LEFT JOIN todos USING (todo_id)
-	%s
 	ORDER BY SUBSTRING(path, 6)
 ';
 $zz['filter'][3]['identifier'] = 'tag';
