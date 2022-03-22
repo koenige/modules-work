@@ -13,30 +13,31 @@
  */
 
 
+/**
+ * send task reminder per mail for new tasks, done tasks or if explicitly said so
+ *
+ * @param array $ops
+ * @return void
+ */
 function mf_work_task_reminder($ops) {
 	global $zz_setting;
 
 	$send_mail = false;
-	// Mail senden, wenn explizit gefordert oder für neue oder abgeschlossene
-	// Aufgaben
 	$text = $ops['record_new'][0];
 	if ($ops['record_diff'][0]['done'] === 'diff') {
-		$mail['subject'] = 'Aufgabe erledigt (ID %d: %s)';
 		// @todo categories, persons (?)
 		$text['action_done'] = true;
 		$send_mail = true;
 	} elseif ($ops['record_diff'][0]['todo_id'] === 'insert') {
-		$mail['subject'] = 'Neue Aufgabe (ID %d: %s)';
 		$text['action_new'] = true;
 		$send_mail = true;
 	} elseif ($ops['record_new'][0]['reminder'] === 'yes') {
-		$mail['subject'] = 'Aufgabe ergänzt/geändert (ID %d: %s)';
 		$text['action_update'] = true;
 		$send_mail = true;
 	}
 	if (!$send_mail) return;
 
-	// Empfängerdaten, Personen und Kategorien holen
+	// get data for mail
 	$task_for = [];
 	$category_ids = [];
 	$contact_ids = [];
@@ -86,7 +87,7 @@ function mf_work_task_reminder($ops) {
 		$text['categories'] = wrap_db_fetch($sql, 'category_id');
 	}
 
-	// Absenderdaten holen
+	// set sender data
 	if (!empty($_SESSION['contact_id'])) {
 		$text['sender'] = $recipients[$_SESSION['contact_id']]['contact'];
 		$text['sender_link'] = $recipients[$_SESSION['contact_id']]['identifier'];
@@ -94,7 +95,7 @@ function mf_work_task_reminder($ops) {
 		$text['sender'] = $zz_setting['own_name'];
 	}
 
-	$mail['subject'] = sprintf($mail['subject'], $ops['id'], $text['todo']);
+	// send mails
 	foreach ($recipients as $recipient) {
 		$recipient = array_merge($text, $recipient);
 		$mail['to']['name'] = $recipient['contact'];
