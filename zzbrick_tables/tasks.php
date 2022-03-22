@@ -126,16 +126,14 @@ $zz['fields'][11]['exclude_from_search'] = true;
 $zz['fields'][11]['hide_in_list'] = true;
 $zz['fields'][11]['default'] = $_SESSION['user_id'];
 
-/*
 $zz['fields'][13]['field_name'] = 'reminder';
 $zz['fields'][13]['type'] = 'option';
 $zz['fields'][13]['type_detail'] = 'select';
 $zz['fields'][13]['enum'] = ['yes', 'no'];
 $zz['fields'][13]['enum_title'] = [wrap_text('yes'), wrap_text('no')];
-$zz['fields'][13]['default'] = 'nein';
+$zz['fields'][13]['default'] = 'no';
 $zz['fields'][13]['if']['add']['default'] = 'yes';
 $zz['fields'][13]['explanation'] = 'If “yes”, the task is sent as an email to the people involved.';
-*/
 
 $zz['fields'][65]['field_name'] = 'sort_order';
 $zz['fields'][65]['type'] = 'display';
@@ -150,10 +148,8 @@ $zz['sql'] = 'SELECT todos.*
 ';
 $zz['sqlorder'] = ' ORDER BY sort_order, deadline ASC, time ASC, ISNULL(sequence), sequence, priority';
 
-/*
 $zz['hooks']['after_insert'] =
-$zz['hooks']['after_update'] = 'task_reminder';
-*/
+$zz['hooks']['after_update'] = 'mf_work_task_reminder';
 
 if (empty($_GET['where']['project_id'])) {
 	$zz['filter'][1]['title'] = wrap_text('Type');

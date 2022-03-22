@@ -1,0 +1,37 @@
+# work module
+# send reminder for tasks, German language
+#
+# Part of »Zugzwang Project«
+# https://www.zugzwang.org/modules/work
+#
+# @author Gustaf Mossakowski <gustaf@koenige.org>
+# @copyright Copyright © 2012-2014, 2016, 2020-2022 Gustaf Mossakowski
+# @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
+#
+%%% condition if female %%%Liebe%%% condition elseif male %%%Lieber%%% condition else %%%Liebe/r%%% condition endif %%% %%% item contact %%%,
+
+die Aufgabenliste unter
+%%% setting host_base %%%/intern/db/todos?show=%%% item todo_id %%% 
+wurde bearbeitet:
+
+-----------------------------------
+
+**%%% item todo %%%**
+%%% condition if todo_description %%%
+
+%%% item todo_description %%%
+%%% condition endif %%%
+
+-----------------------------------
+
+Priorität:   %%% item priority %%% 
+Deadline:    %%% item deadline wrap_date %%% 
+Erledigt:    %%% condition if done %%%%%% item done wrap_date %%%%%% condition else %%%noch nicht%%% condition endif %%% 
+Aufgabe von: %%% item author_contact %%% 
+Aufgabe für: %%% loop task_for %%%%%% item contact %%%%%% loopposition first|middle "," %%% %%% loop end %%% 
+Kategorien:  %%% loop categories %%%%%% item main_category %%%: %%% item category %%%%%% loopposition first|middle "," %%% %%% loop end %%% 
+
+-----------------------------------
+
+Viele Grüße
+%%% setting project %%% 
