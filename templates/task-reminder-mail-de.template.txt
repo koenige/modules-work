@@ -19,7 +19,7 @@ Subject: Aufgabe ergänzt/geändert (ID %%% item todo_id %%%: %%% item todo %%%)
 %%% condition if female %%%Liebe%%% condition elseif male %%%Lieber%%% condition else %%%Liebe/r%%% condition endif %%% %%% item contact %%%,
 
 die Aufgabenliste unter
-%%% setting host_base %%%/intern/db/todos?show=%%% item todo_id %%% 
+%%% setting host_base %%%%%% item task_path %%%?show=%%% item todo_id %%% 
 wurde bearbeitet:
 
 -----------------------------------

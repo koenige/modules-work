@@ -86,6 +86,10 @@ function mf_work_task_reminder($ops) {
 		$sql = sprintf($sql, implode(',', $category_ids));
 		$text['categories'] = wrap_db_fetch($sql, 'category_id');
 	}
+	
+	$text['task_path'] = wrap_path('work_tasks_table');
+	if (!$text['task_path'])
+		$text['task_path'] = wrap_path('default_tables', 'tasks');
 
 	// set sender data
 	if (!empty($_SESSION['contact_id'])) {
