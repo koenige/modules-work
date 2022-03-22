@@ -9,25 +9,25 @@
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
 %%% condition if action_done %%%
-Subject: Aufgabe erledigt (ID %%% item todo_id %%%: %%% item todo %%%) 
+Subject: Aufgabe erledigt (ID %%% item task_id %%%: %%% item task %%%) 
 %%% condition elseif action_new %%%
-Subject: Neue Aufgabe (ID %%% item todo_id %%%: %%% item todo %%%) 
+Subject: Neue Aufgabe (ID %%% item task_id %%%: %%% item task %%%) 
 %%% condition elseif action_update %%%
-Subject: Aufgabe ergänzt/geändert (ID %%% item todo_id %%%: %%% item todo %%%)
+Subject: Aufgabe ergänzt/geändert (ID %%% item task_id %%%: %%% item task %%%)
 %%% condition endif %%%
 
 %%% condition if female %%%Liebe%%% condition elseif male %%%Lieber%%% condition else %%%Liebe/r%%% condition endif %%% %%% item contact %%%,
 
 die Aufgabenliste unter
-%%% setting host_base %%%%%% item task_path %%%?show=%%% item todo_id %%% 
+%%% setting host_base %%%%%% item task_path %%%?show=%%% item task_id %%% 
 wurde bearbeitet:
 
 -----------------------------------
 
-**%%% item todo %%%**
-%%% condition if todo_description %%%
+**%%% item task %%%**
+%%% condition if task_description %%%
 
-%%% item todo_description %%%
+%%% item task_description %%%
 %%% condition endif %%%
 
 -----------------------------------

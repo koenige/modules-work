@@ -14,18 +14,18 @@
  
 
 $zz['title'] = 'Task Categories';
-$zz['table'] = 'todos_categories';
+$zz['table'] = 'tasks_categories';
 
 $zz['fields'][1]['title'] = 'ID';
-$zz['fields'][1]['field_name'] = 'todo_category_id';
+$zz['fields'][1]['field_name'] = 'task_category_id';
 $zz['fields'][1]['type'] = 'id';
 
 $zz['fields'][2]['title'] = 'Task';
-$zz['fields'][2]['field_name'] = 'todo_id';
+$zz['fields'][2]['field_name'] = 'task_id';
 $zz['fields'][2]['type'] = 'select';
-$zz['fields'][2]['sql'] = 'SELECT todo_id, todo
-	FROM todos ORDER BY todo';
-$zz['fields'][2]['display_field'] = 'todo';
+$zz['fields'][2]['sql'] = 'SELECT task_id, task
+	FROM tasks ORDER BY task';
+$zz['fields'][2]['display_field'] = 'task';
 
 $zz['fields'][3]['field_name'] = 'category_id';
 $zz['fields'][3]['type'] = 'select';
@@ -39,10 +39,10 @@ if (wrap_get_setting('default_categories_form_path'))
 	, wrap_get_setting('default_categories_form_path'), wrap_category_id('tasks'));
 
 
-$zz['sql'] = 'SELECT todos_categories.*
-		, category, todo
-	FROM todos_categories
+$zz['sql'] = 'SELECT tasks_categories.*
+		, category, task
+	FROM tasks_categories
 	LEFT JOIN categories USING (category_id)
-	LEFT JOIN todos USING (todo_id)
+	LEFT JOIN tasks USING (task_id)
 ';
 $zz['sqlorder'] = ' ORDER BY category';

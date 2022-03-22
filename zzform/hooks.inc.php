@@ -28,7 +28,7 @@ function mf_work_task_reminder($ops) {
 		// @todo categories, persons (?)
 		$text['action_done'] = true;
 		$send_mail = true;
-	} elseif ($ops['record_diff'][0]['todo_id'] === 'insert') {
+	} elseif ($ops['record_diff'][0]['task_id'] === 'insert') {
 		$text['action_new'] = true;
 		$send_mail = true;
 	} elseif ($ops['record_new'][0]['reminder'] === 'yes') {
@@ -45,10 +45,10 @@ function mf_work_task_reminder($ops) {
 	if (!empty($_SESSION['contact_id']))
 		$contact_ids[] = $_SESSION['contact_id'];
 	foreach ($ops['return'] as $index => $detailrecord) {
-		if ($detailrecord['table'] === 'todos_contacts') {
+		if ($detailrecord['table'] === 'tasks_contacts') {
 			$contact_ids[] = $ops['record_new'][$index]['contact_id'];
 			$task_for[] = $ops['record_new'][$index]['contact_id'];
-		} elseif ($detailrecord['table'] === 'todos_categories') {
+		} elseif ($detailrecord['table'] === 'tasks_categories') {
 			$category_ids[] = $ops['record_new'][$index]['category_id'];
 		}
 	}

@@ -14,21 +14,21 @@
  
 
 $zz['title'] = 'Tasks';
-$zz['table'] = 'todos';
+$zz['table'] = 'tasks';
 
 $zz['fields'][1]['title'] = 'ID';
-$zz['fields'][1]['field_name'] = 'todo_id';
+$zz['fields'][1]['field_name'] = 'task_id';
 $zz['fields'][1]['type'] = 'id';
 
 $zz['fields'][2]['title'] = 'Task';
-$zz['fields'][2]['field_name'] = 'todo';
+$zz['fields'][2]['field_name'] = 'task';
 $zz['fields'][2]['type'] = 'text';
 $zz['fields'][2]['list_append_next'] = true;
 $zz['fields'][2]['list_prefix'] = '<strong>';
 $zz['fields'][2]['list_suffix'] = '</strong>';
 
 $zz['fields'][3]['title'] = 'Description';
-$zz['fields'][3]['field_name'] = 'todo_description';
+$zz['fields'][3]['field_name'] = 'task_description';
 $zz['fields'][3]['type'] = 'memo';
 $zz['fields'][3]['format'] = 'markdown';
 $zz['fields'][3]['list_format'] = 'markdown';
@@ -42,11 +42,11 @@ $zz['fields'][22]['min_records'] = 1;
 $zz['fields'][22]['max_records'] = 10;
 $zz['fields'][22]['form_display'] = 'lines';
 $zz['fields'][22]['fields'][2]['type'] = 'foreign_key';
-$zz['fields'][22]['subselect']['sql'] = sprintf('SELECT todo_id
+$zz['fields'][22]['subselect']['sql'] = sprintf('SELECT task_id
 		, CONCAT(IFNULL(main_categories.category, ""), " ", categories.category) AS category
-	FROM todos_categories
+	FROM tasks_categories
 	LEFT JOIN categories
-		ON todos_categories.category_id = categories.category_id
+		ON tasks_categories.category_id = categories.category_id
 	LEFT JOIN categories main_categories
 		ON categories.main_category_id = main_categories.category_id
 		AND main_categories.category_id != %d
@@ -62,8 +62,8 @@ $zz['fields'][23]['min_records'] = 0;
 $zz['fields'][23]['max_records'] = 10;
 $zz['fields'][23]['form_display'] = 'lines';
 $zz['fields'][23]['fields'][2]['type'] = 'foreign_key';
-$zz['fields'][23]['subselect']['sql'] = 'SELECT todo_id, contact
-	FROM todos_contacts
+$zz['fields'][23]['subselect']['sql'] = 'SELECT task_id, contact
+	FROM tasks_contacts
 	LEFT JOIN contacts USING (contact_id)
 ';
 $zz['fields'][23]['subselect']['concat_fields'] = ', ';
@@ -142,9 +142,9 @@ $zz['fields'][65]['hide_in_list'] = true;
 $zz['fields'][65]['group_in_list'] = true;
 $zz['fields'][65]['exclude_from_search'] = true;
 
-$zz['sql'] = 'SELECT todos.*
+$zz['sql'] = 'SELECT tasks.*
 	, IF(deadline, "A with deadline", "B without deadline") AS sort_order
-	FROM todos
+	FROM tasks
 ';
 $zz['sqlorder'] = ' ORDER BY sort_order, deadline ASC, time ASC, ISNULL(sequence), sequence, priority';
 
@@ -179,15 +179,15 @@ if (empty($_GET['where']['project_id'])) {
 
 $zz['filter'][3]['title'] = wrap_text('Tag');
 $zz['filter'][3]['sql'] = 'SELECT DISTINCT category_id, SUBSTRING(path, 6)
-	FROM todos_categories
+	FROM tasks_categories
 	LEFT JOIN categories USING (category_id)
-	LEFT JOIN todos USING (todo_id)
+	LEFT JOIN tasks USING (task_id)
 	ORDER BY SUBSTRING(path, 6)
 ';
 $zz['filter'][3]['identifier'] = 'tag';
 $zz['filter'][3]['type'] = 'list';
-$zz['filter'][3]['sql_join'] = 'LEFT JOIN todos_categories USING (todo_id)';
-$zz['filter'][3]['where'] = 'todos_categories.category_id';
+$zz['filter'][3]['sql_join'] = 'LEFT JOIN tasks_categories USING (task_id)';
+$zz['filter'][3]['where'] = 'tasks_categories.category_id';
 
 $zz['filter'][4]['title'] = wrap_text('Period');
 $zz['filter'][4]['identifier'] = 'period';

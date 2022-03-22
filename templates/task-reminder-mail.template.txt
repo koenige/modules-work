@@ -9,25 +9,25 @@
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
 %%% condition if action_done %%%
-Subject: Task Done (ID %%% item todo_id %%%: %%% item todo %%%) 
+Subject: Task Done (ID %%% item task_id %%%: %%% item task %%%) 
 %%% condition elseif action_new %%%
-Subject: New Task (ID %%% item todo_id %%%: %%% item todo %%%) 
+Subject: New Task (ID %%% item task_id %%%: %%% item task %%%) 
 %%% condition elseif action_update %%%
-Subject: Task Added/Changed (ID %%% item todo_id %%%: %%% item todo %%%)
+Subject: Task Added/Changed (ID %%% item task_id %%%: %%% item task %%%)
 %%% condition endif %%%
 
 Dear %%% item contact %%%,
 
 the task list at
-%%% setting host_base %%%%%% item task_path %%%?show=%%% item todo_id %%% 
+%%% setting host_base %%%%%% item task_path %%%?show=%%% item task_id %%% 
 was edited:
 
 -----------------------------------
 
-**%%% item todo %%%**
-%%% condition if todo_description %%%
+**%%% item task %%%**
+%%% condition if task_description %%%
 
-%%% item todo_description %%%
+%%% item task_description %%%
 %%% condition endif %%%
 
 -----------------------------------
