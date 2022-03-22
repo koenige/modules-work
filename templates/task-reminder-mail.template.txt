@@ -1,0 +1,45 @@
+# work module
+# send reminder for tasks
+#
+# Part of »Zugzwang Project«
+# https://www.zugzwang.org/modules/work
+#
+# @author Gustaf Mossakowski <gustaf@koenige.org>
+# @copyright Copyright © 2022 Gustaf Mossakowski
+# @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
+#
+%%% condition if action_done %%%
+Subject: Task Done (ID %%% item todo_id %%%: %%% item todo %%%) 
+%%% condition elseif action_new %%%
+Subject: New Task (ID %%% item todo_id %%%: %%% item todo %%%) 
+%%% condition elseif action_update %%%
+Subject: Task Added/Changed (ID %%% item todo_id %%%: %%% item todo %%%)
+%%% condition endif %%%
+
+Dear %%% item contact %%%,
+
+the task list at
+%%% setting host_base %%%%%% item task_path %%%?show=%%% item todo_id %%% 
+was edited:
+
+-----------------------------------
+
+**%%% item todo %%%**
+%%% condition if todo_description %%%
+
+%%% item todo_description %%%
+%%% condition endif %%%
+
+-----------------------------------
+
+Priority:    %%% item priority %%% 
+Deadline:    %%% item deadline wrap_date %%% 
+Done:        %%% condition if done %%%%%% item done wrap_date %%%%%% condition else %%%not yet%%% condition endif %%% 
+Task of:     %%% item author_contact %%% 
+Task for:    %%% loop task_for %%%%%% item contact %%%%%% loopposition first|middle "," %%% %%% loop end %%% 
+Categories:  %%% loop categories %%%%%% item main_category %%%: %%% item category %%%%%% loopposition first|middle "," %%% %%% loop end %%% 
+
+-----------------------------------
+
+Best regards
+%%% setting project %%% 
