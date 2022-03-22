@@ -62,8 +62,8 @@ function mf_work_task_reminder($ops) {
 			, IF(sex = "female", 1, NULL) AS female
 			, IF(sex = "male", 1, NULL) AS male
 			, IF(sex = "diverse", 1, NULL) AS diverse
-		FROM /*_PREFIX_*/persons
-		LEFT JOIN contacts USING (contact_id)
+		FROM /*_PREFIX_*/contacts
+		LEFT JOIN persons USING (contact_id)
 		WHERE contact_id IN (%s)';
 	$sql = sprintf($sql
 		, wrap_category_id('provider/e-mail')
@@ -96,7 +96,7 @@ function mf_work_task_reminder($ops) {
 		$text['sender'] = $recipients[$_SESSION['contact_id']]['contact'];
 		$text['sender_link'] = $recipients[$_SESSION['contact_id']]['identifier'];
 	} else {
-		$text['sender'] = $zz_setting['own_name'];
+		$text['sender'] = wrap_get_setting('own_name');
 	}
 
 	// send mails
@@ -104,7 +104,8 @@ function mf_work_task_reminder($ops) {
 		$recipient = array_merge($text, $recipient);
 		$mail['to']['name'] = $recipient['contact'];
 		$mail['to']['e_mail'] = $recipient['e_mail'];
-		$mail['parameters'] = '-f '.$zz_setting['own_e_mail'];
+		if ($own_e_mail = wrap_get_setting('own_e_mail'))
+			$mail['parameters'] = '-f '.$own_e_mail;
 		$mail['message'] = wrap_template('task-reminder-mail', $recipient);
 		wrap_mail($mail);
 	}
