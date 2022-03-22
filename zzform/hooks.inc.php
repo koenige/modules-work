@@ -94,10 +94,7 @@ function mf_work_task_reminder($ops) {
 		$text['sender'] = $zz_setting['own_name'];
 	}
 
-	
-
 	$mail['subject'] = sprintf($mail['subject'], $ops['id'], $text['todo']);
-	unset($mail['subject']);
 	foreach ($recipients as $recipient) {
 		$recipient = array_merge($text, $recipient);
 		$mail['to']['name'] = $recipient['contact'];
