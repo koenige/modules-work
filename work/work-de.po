@@ -23,6 +23,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Generator: Poedit 1.8.12\n"
 
+#: zzform/hooks.inc.php
 #: zzbrick_tables/tasks.php
 msgid "Tasks"
 msgstr "Aufgaben"
