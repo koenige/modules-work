@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/work
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2012-2013, 2018-2019, 2021-2022 Gustaf Mossakowski
+ * @copyright Copyright © 2012-2013, 2018-2019, 2021-2023 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -20,8 +20,6 @@
  * @return void
  */
 function mf_work_task_reminder($ops) {
-	global $zz_setting;
-
 	$send_mail = false;
 	$text = $ops['record_new'][0];
 	if ($ops['record_diff'][0]['done'] === 'diff') {
@@ -96,7 +94,7 @@ function mf_work_task_reminder($ops) {
 		$text['sender'] = $recipients[$_SESSION['contact_id']]['contact'];
 		$text['sender_link'] = $recipients[$_SESSION['contact_id']]['identifier'];
 	} else {
-		$text['sender'] = wrap_get_setting('own_name');
+		$text['sender'] = wrap_setting('own_name');
 	}
 
 	// send mails
@@ -104,7 +102,7 @@ function mf_work_task_reminder($ops) {
 		$recipient = array_merge($text, $recipient);
 		$mail['to']['name'] = $recipient['contact'];
 		$mail['to']['e_mail'] = $recipient['e_mail'];
-		if ($own_e_mail = wrap_get_setting('own_e_mail'))
+		if ($own_e_mail = wrap_setting('own_e_mail'))
 			$mail['parameters'] = '-f '.$own_e_mail;
 		$mail['message'] = wrap_template('task-reminder-mail', $recipient);
 		wrap_mail($mail);
