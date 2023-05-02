@@ -35,7 +35,7 @@ $zz['fields'][3]['list_format'] = 'markdown';
 $zz['fields'][3]['list_prefix'] = '<div class="moretext">';
 $zz['fields'][3]['list_suffix'] = '</div>';
 
-$zz['fields'][22] = zzform_include_table('tasks-categories');
+$zz['fields'][22] = zzform_include('tasks-categories');
 $zz['fields'][22]['title'] = 'Tags';
 $zz['fields'][22]['type'] = 'subtable';
 $zz['fields'][22]['min_records'] = 1;
@@ -54,7 +54,7 @@ $zz['fields'][22]['subselect']['sql'] = sprintf('SELECT task_id
 $zz['fields'][22]['subselect']['concat_fields'] = ', ';
 $zz['fields'][22]['hide_in_list_if_empty'] = true;
 
-$zz['fields'][23] = zzform_include_table('tasks-contacts');
+$zz['fields'][23] = zzform_include('tasks-contacts');
 $zz['fields'][23]['title'] = 'Task for';
 $zz['fields'][23]['type'] = 'subtable';
 $zz['fields'][23]['hide_in_list_if_empty'] = true;
