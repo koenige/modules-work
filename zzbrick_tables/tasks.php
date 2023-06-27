@@ -212,4 +212,4 @@ $zz['filter'][4]['selection'][8] = wrap_text('no deadline');
 $zz['filter'][4]['default_selection'] = 4;
 
 $zz_conf['limit'] = 40;
-$zz_conf['search_form_always'] = true;
+wrap_setting('zzform_search_form_always', true);
