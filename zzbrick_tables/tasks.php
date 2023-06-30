@@ -211,5 +211,5 @@ $zz['filter'][4]['selection'][7] = wrap_text('far away');
 $zz['filter'][4]['selection'][8] = wrap_text('no deadline');
 $zz['filter'][4]['default_selection'] = 4;
 
-$zz_conf['limit'] = 40;
+wrap_setting('zzform_limit', 40);
 wrap_setting('zzform_search_form_always', true);
