@@ -5,16 +5,16 @@
 # https://www.zugzwang.org/modules/work
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2022 Gustaf Mossakowski
+# @copyright Copyright © 2022, 2024 Gustaf Mossakowski
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
-%%% condition if action_done %%%
+%%% if action_done %%%
 Subject: Task Done (ID %%% item task_id %%%: %%% item task %%%) 
-%%% condition elseif action_new %%%
+%%% elseif action_new %%%
 Subject: New Task (ID %%% item task_id %%%: %%% item task %%%) 
-%%% condition elseif action_update %%%
+%%% elseif action_update %%%
 Subject: Task Added/Changed (ID %%% item task_id %%%: %%% item task %%%)
-%%% condition endif %%%
+%%% endif %%%
 
 Dear %%% item contact %%%,
 
@@ -25,16 +25,16 @@ was edited:
 -----------------------------------
 
 **%%% item task %%%**
-%%% condition if task_description %%%
+%%% if task_description %%%
 
 %%% item task_description %%%
-%%% condition endif %%%
+%%% endif %%%
 
 -----------------------------------
 
 Priority:    %%% item priority %%% 
 Deadline:    %%% item deadline wrap_date %%% 
-Done:        %%% condition if done %%%%%% item done wrap_date %%%%%% condition else %%%not yet%%% condition endif %%% 
+Done:        %%% if done %%%%%% item done wrap_date %%%%%% else %%%not yet%%% endif %%% 
 Task of:     %%% item author_contact %%% 
 Task for:    %%% loop task_for %%%%%% item contact %%%%%% loopposition first|middle "," %%% %%% loop end %%% 
 Categories:  %%% loop categories %%%%%% item main_category %%%: %%% item category %%%%%% loopposition first|middle "," %%% %%% loop end %%% 
