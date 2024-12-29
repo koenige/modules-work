@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/work
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2009-2013, 2017, 2019-2023 Gustaf Mossakowski
+ * @copyright Copyright © 2009-2013, 2017, 2019-2024 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
  
@@ -42,15 +42,14 @@ $zz['fields'][22]['min_records'] = 1;
 $zz['fields'][22]['max_records'] = 10;
 $zz['fields'][22]['form_display'] = 'lines';
 $zz['fields'][22]['fields'][2]['type'] = 'foreign_key';
-$zz['fields'][22]['subselect']['sql'] = sprintf('SELECT task_id
+$zz['fields'][22]['subselect']['sql'] = 'SELECT task_id
 		, CONCAT(IFNULL(main_categories.category, ""), " ", categories.category) AS category
 	FROM tasks_categories
 	LEFT JOIN categories
 		ON tasks_categories.category_id = categories.category_id
 	LEFT JOIN categories main_categories
 		ON categories.main_category_id = main_categories.category_id
-		AND main_categories.category_id != %d
-', wrap_category_id('tasks'));
+		AND main_categories.category_id != /*_ID categories tasks _*/';
 $zz['fields'][22]['subselect']['concat_fields'] = ', ';
 $zz['fields'][22]['hide_in_list_if_empty'] = true;
 
@@ -116,12 +115,11 @@ $zz['fields'][11]['title'] = 'Author';
 $zz['fields'][11]['field_name'] = 'author_contact_id';
 $zz['fields'][11]['type'] = 'write_once';
 $zz['fields'][11]['type_detail'] = 'select';
-$zz['fields'][11]['sql'] = sprintf('SELECT contact_id
+$zz['fields'][11]['sql'] = 'SELECT contact_id
 		, contact, identifier
 	FROM contacts
-	WHERE contact_category_id = %d
-	ORDER BY contact', wrap_category_id('contact/person'));
-$zz['fields'][11]['key_field_name'] = 'contact_id';
+	WHERE contact_category_id = /*_ID categories contact/person _*/
+	ORDER BY contact';
 $zz['fields'][11]['exclude_from_search'] = true;
 $zz['fields'][11]['hide_in_list'] = true;
 $zz['fields'][11]['default'] = $_SESSION['user_id'];

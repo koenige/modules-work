@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/work
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2012-2013, 2018-2019, 2021-2023 Gustaf Mossakowski
+ * @copyright Copyright © 2012-2013, 2018-2019, 2021-2024 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -54,7 +54,7 @@ function mf_work_task_reminder($ops) {
 	$sql = 'SELECT contact_id, identifier, contact
 			, (SELECT identification FROM contactdetails
 				WHERE contactdetails.contact_id = contacts.contact_id
-				AND provider_category_id = %d
+				AND provider_category_id = /*_ID categories provider/e-mail _*/
 				LIMIT 1
 			) AS e_mail
 			, IF(sex = "female", 1, NULL) AS female
@@ -63,10 +63,7 @@ function mf_work_task_reminder($ops) {
 		FROM /*_PREFIX_*/contacts
 		LEFT JOIN persons USING (contact_id)
 		WHERE contact_id IN (%s)';
-	$sql = sprintf($sql
-		, wrap_category_id('provider/e-mail')
-		, implode(',', $contact_ids)
-	);
+	$sql = sprintf($sql, implode(',', $contact_ids));
 	$recipients = wrap_db_fetch($sql, 'contact_id');
 	$task_for = array_intersect(array_keys($recipients), $task_for);
 	foreach ($task_for as $id) {
