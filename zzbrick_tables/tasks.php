@@ -208,6 +208,7 @@ $zz['filter'][4]['selection'][6] = wrap_text('plus four weeks');
 $zz['filter'][4]['selection'][7] = wrap_text('far away');
 $zz['filter'][4]['selection'][8] = wrap_text('no deadline');
 $zz['filter'][4]['default_selection'] = 4;
+$zz['filter'][4]['default_selection_if_empty'] = 0;
 
 $zz['setting']['zzform_limit'] = 40;
 $zz['setting']['zzform_search_form_always'] = true;
