@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/work
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2009-2013, 2017, 2019-2024 Gustaf Mossakowski
+ * @copyright Copyright © 2009-2013, 2017, 2019-2025 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
  
@@ -144,12 +144,12 @@ $zz['sql'] = 'SELECT tasks.*
 	, IF(deadline, "A with deadline", "B without deadline") AS sort_order
 	FROM tasks
 ';
-$zz['sqlorder'] = ' ORDER BY sort_order, deadline ASC, time ASC, ISNULL(sequence), sequence, priority';
+$zz['sqlorder'] = ' ORDER BY sort_order, deadline ASC, time ASC, ISNULL(tasks.sequence), tasks.sequence, priority';
 
 $zz['hooks']['after_insert'] =
 $zz['hooks']['after_update'] = 'mf_work_task_reminder';
 
-if (empty($_GET['where']['project_id'])) {
+if (empty($_GET['where']['event_id'])) {
 	$zz['filter'][1]['title'] = wrap_text('Type');
 	$zz['filter'][1]['identifier'] = 'type';
 	$zz['filter'][1]['type'] = 'list';
