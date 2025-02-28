@@ -223,6 +223,10 @@ msgstr ""
 msgid "Tag"
 msgstr ""
 
+#: zzbrick_tables/work.php
+msgid "The end must be after the beginning."
+msgstr ""
+
 #: zzbrick_tables/work-categories.php
 msgid "Categories for Working Hours"
 msgstr ""

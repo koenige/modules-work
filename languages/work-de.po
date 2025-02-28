@@ -212,6 +212,10 @@ msgstr "Jahr"
 msgid "Month"
 msgstr "Monat"
 
+#: zzbrick_tables/work.php
+msgid "The end must be after the beginning."
+msgstr "Das Ende muss nach dem Beginn liegen."
+
 #: zzbrick_tables/work-categories.php
 msgid "Categories for Working Hours"
 msgstr "Kategorien für Arbeitszeit"
@@ -223,6 +227,3 @@ msgstr "Arbeit"
 #: zzbrick_tables/work-categories.php
 msgid "Duration"
 msgstr "Dauer"
-
-#~ msgid "Working Time"
-#~ msgstr "Arbeitszeit"

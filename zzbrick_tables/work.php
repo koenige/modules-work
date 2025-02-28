@@ -1,8 +1,16 @@
 <?php 
 
-// scrilab work administration database
-// Copyright (c) 2009-2013, 2015-2017, 2019-2020, 2022-2023, 2025 Gustaf Mossakowski <gustaf@koenige.org>
-// working time
+/**
+ * work module
+ * table definition for work
+ *
+ * Part of »Zugzwang Project«
+ * https://www.zugzwang.org/modules/work
+ *
+ * @author Gustaf Mossakowski <gustaf@koenige.org>
+ * @copyright Copyright © 2009-2013, 2015-2017, 2019-2020, 2022-2023, 2025 Gustaf Mossakowski
+ * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
+ */
 
 
 $zz['table'] = 'work';
