@@ -227,6 +227,14 @@ msgstr ""
 msgid "The end must be after the beginning."
 msgstr ""
 
+#: zzbrick_tables/work.php
+msgid "without Positions"
+msgstr ""
+
+#: zzbrick_tables/work.php
+msgid "with Positions"
+msgstr ""
+
 #: zzbrick_tables/work-categories.php
 msgid "Categories for Working Hours"
 msgstr ""

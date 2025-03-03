@@ -216,6 +216,14 @@ msgstr "Monat"
 msgid "The end must be after the beginning."
 msgstr "Das Ende muss nach dem Beginn liegen."
 
+#: zzbrick_tables/work.php
+msgid "without Positions"
+msgstr "ohne Positionen"
+
+#: zzbrick_tables/work.php
+msgid "with Positions"
+msgstr "mit Positionen"
+
 #: zzbrick_tables/work-categories.php
 msgid "Categories for Working Hours"
 msgstr "Kategorien für Arbeitszeit"

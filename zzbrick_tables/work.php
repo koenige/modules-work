@@ -70,30 +70,6 @@ $zz['fields'][12]['fields'][2]['type'] = 'foreign_key';
 $zz['fields'][12]['min_records'] = 1;
 $zz['fields'][12]['form_display'] = 'lines';
 
-$zz['fields'][6]['title'] = 'Δ Time';
-$zz['fields'][6]['field_name'] = 'duration_minutes';
-$zz['fields'][6]['type'] = 'display';
-$zz['fields'][6]['type_detail'] = 'number';
-$zz['fields'][6]['sum'] = true;
-$zz['fields'][6]['format'] = 'wrap_duration';
-$zz['fields'][6]['hide_format_in_title_desc'] = true;
-$zz['fields'][6]['list_format'] = 'wrap_duration';
-$zz['fields'][6]['exclude_from_search'] = true;
-$zz['fields'][6]['if']['add']['hide_in_form'] = true;
-wrap_setting('duration_format', 'H:i');
-
-$zz['fields'][7]['field_name'] = 'week';
-$zz['fields'][7]['type'] = 'display';
-$zz['fields'][7]['hide_in_list'] = true;
-$zz['fields'][7]['hide_in_form'] = true;
-$zz['fields'][7]['exclude_from_search'] = true;
-
-$zz['fields'][8]['field_name'] = 'month';
-$zz['fields'][8]['type'] = 'display';
-$zz['fields'][8]['hide_in_list'] = true;
-$zz['fields'][8]['hide_in_form'] = true;
-$zz['fields'][8]['exclude_from_search'] = true;
-
 $zz['fields'][11]['title'] = 'Who?';
 $zz['fields'][11]['field_name'] = 'contact_id';
 $zz['fields'][11]['type'] = 'select';
@@ -118,6 +94,7 @@ if (wrap_package('finance')) {
 	$zz['fields'][13]['type'] = 'subtable';
 	$zz['fields'][13]['form_display'] = 'lines';
 	$zz['fields'][13]['fields'][3]['type'] = 'foreign_key';
+	$zz['fields'][13]['fields'][4]['hide_in_form'] = true;
 	$zz['fields'][13]['subselect']['sql'] = 'SELECT work_id, document_no, position_no
 	    FROM positions_work
 	    LEFT JOIN positions USING (position_id)
@@ -125,6 +102,30 @@ if (wrap_package('finance')) {
 	$zz['fields'][13]['subselect']['concat_fields'] = '/';
 	$zz['fields'][13]['hide_in_list_if_empty'] = true;
 }
+
+$zz['fields'][6]['title'] = 'Δ Time';
+$zz['fields'][6]['field_name'] = 'duration_minutes';
+$zz['fields'][6]['type'] = 'display';
+$zz['fields'][6]['type_detail'] = 'number';
+$zz['fields'][6]['sum'] = true;
+$zz['fields'][6]['format'] = 'wrap_duration';
+$zz['fields'][6]['hide_format_in_title_desc'] = true;
+$zz['fields'][6]['list_format'] = 'wrap_duration';
+$zz['fields'][6]['exclude_from_search'] = true;
+$zz['fields'][6]['if']['add']['hide_in_form'] = true;
+wrap_setting('duration_format', 'H:i');
+
+$zz['fields'][7]['field_name'] = 'week';
+$zz['fields'][7]['type'] = 'display';
+$zz['fields'][7]['hide_in_list'] = true;
+$zz['fields'][7]['hide_in_form'] = true;
+$zz['fields'][7]['exclude_from_search'] = true;
+
+$zz['fields'][8]['field_name'] = 'month';
+$zz['fields'][8]['type'] = 'display';
+$zz['fields'][8]['hide_in_list'] = true;
+$zz['fields'][8]['hide_in_form'] = true;
+$zz['fields'][8]['exclude_from_search'] = true;
 
 
 $zz['sql'] = 'SELECT work.* 
@@ -144,6 +145,7 @@ $zz['sql_translate'] = ['event_id' => 'events'];
 $zz['list']['tfoot'] = true;
 $zz['subtitle']['event_id']['sql'] = $zz['fields'][4]['sql'];
 $zz['subtitle']['event_id']['var'] = ['event'];
+// @todo translate subtitle
 
 $zz['export'][] = 'CSV';
 $zz['record']['copy'] = true;
@@ -196,3 +198,14 @@ $zz['filter'][3]['identifier'] = 'tag';
 $zz['filter'][3]['type'] = 'list';
 $zz['filter'][3]['sql_join'] = 'LEFT JOIN work_categories USING (work_id)';
 $zz['filter'][3]['where'] = 'work_categories.category_id';
+
+if (wrap_package('finance')) {
+	$zz['filter'][4]['title'] = wrap_text('Positions');
+	$zz['filter'][4]['identifier'] = 'positions';
+	$zz['filter'][4]['type'] = 'list';
+	$zz['filter'][4]['sql_join'] = 'LEFT JOIN positions_work USING (work_id)';
+	$zz['filter'][4]['where_if'][1] = 'ISNULL(position_work_id)';
+	$zz['filter'][4]['where_if'][2] = 'NOT ISNULL(position_work_id)';
+	$zz['filter'][4]['selection'][1] = wrap_text('without Positions');
+	$zz['filter'][4]['selection'][2] = wrap_text('with Positions');
+}
