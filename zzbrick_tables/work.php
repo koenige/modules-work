@@ -111,6 +111,21 @@ if (wrap_db_data('work_logins_count') == 1) {
 	$zz['fields'][11]['hide_in_list'] = true;
 }
 
+if (wrap_package('finance')) {
+	$zz['fields'][13] = zzform_include('positions-work');
+	$zz['fields'][13]['title'] = 'Position';
+	$zz['fields'][13]['title_tab'] = 'Pos.';
+	$zz['fields'][13]['type'] = 'subtable';
+	$zz['fields'][13]['form_display'] = 'lines';
+	$zz['fields'][13]['fields'][3]['type'] = 'foreign_key';
+	$zz['fields'][13]['subselect']['sql'] = 'SELECT work_id, document_no, position_no
+	    FROM positions_work
+	    LEFT JOIN positions USING (position_id)
+	    LEFT JOIN documents USING (document_id)';
+	$zz['fields'][13]['subselect']['concat_fields'] = '/';
+	$zz['fields'][13]['hide_in_list_if_empty'] = true;
+}
+
 
 $zz['sql'] = 'SELECT work.* 
 		, event
