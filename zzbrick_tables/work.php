@@ -145,7 +145,6 @@ $zz['sql_translate'] = ['event_id' => 'events'];
 $zz['list']['tfoot'] = true;
 $zz['subtitle']['event_id']['sql'] = $zz['fields'][4]['sql'];
 $zz['subtitle']['event_id']['var'] = ['event'];
-// @todo translate subtitle
 
 $zz['export'][] = 'CSV';
 $zz['record']['copy'] = true;
