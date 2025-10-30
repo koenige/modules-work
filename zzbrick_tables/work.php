@@ -93,6 +93,8 @@ if (wrap_package('finance')) {
 	$zz['fields'][13]['title_tab'] = 'Pos.';
 	$zz['fields'][13]['type'] = 'subtable';
 	$zz['fields'][13]['form_display'] = 'lines';
+	$zz['fields'][13]['min_records'] = 1;
+	$zz['fields'][13]['max_records'] = 1;
 	$zz['fields'][13]['fields'][3]['type'] = 'foreign_key';
 	$zz['fields'][13]['fields'][4]['hide_in_form'] = true;
 	$zz['fields'][13]['subselect']['sql'] = 'SELECT work_id, document_no, position_no
