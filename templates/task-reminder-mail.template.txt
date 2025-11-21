@@ -5,7 +5,7 @@
 # https://www.zugzwang.org/modules/work
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2022, 2024 Gustaf Mossakowski
+# @copyright Copyright © 2022, 2024-2025 Gustaf Mossakowski
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
 %%% if action_done %%%
@@ -33,8 +33,8 @@ was edited:
 -----------------------------------
 
 Priority:    %%% item priority %%% 
-Deadline:    %%% item deadline wrap_date %%% 
-Done:        %%% if done %%%%%% item done wrap_date %%%%%% else %%%not yet%%% endif %%% 
+Deadline:    %%% item deadline date_plain %%% 
+Done:        %%% if done %%%%%% item done date_plain %%%%%% else %%%not yet%%% endif %%% 
 Task of:     %%% item author_contact %%% 
 Task for:    %%% loop task_for %%%%%% item contact %%%%%% loopposition first|middle "," %%% %%% loop end %%% 
 Categories:  %%% loop categories %%%%%% item main_category %%%: %%% item category %%%%%% loopposition first|middle "," %%% %%% loop end %%% 
