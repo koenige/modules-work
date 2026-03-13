@@ -6,7 +6,7 @@
  * https://www.zugzwang.org/modules/work
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2022, 2025 Gustaf Mossakowski
+ * @copyright Copyright © 2022, 2025-2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -27,3 +27,5 @@
 /* 2025-02-28-6 */	INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'categories', 'category_id', (SELECT DATABASE()), 'work_categories', 'wc_id', 'category_id', 'no-delete');
 /* 2025-02-28-7 */	INSERT INTO categories (`category`, `description`, `main_category_id`, `path`, `parameters`, `sequence`, `last_update`) VALUES ('Tags', NULL, NULL, 'tags', 'alias=tags', NULL, NOW());
 /* 2025-02-28-8 */	CREATE OR REPLACE VIEW `work_view` AS SELECT `work`.`work_id` AS `work_id`, `work`.`work_begin` AS `work_begin`, `work`.`work_end` AS `work_end`, `work`.`event_id` AS `event_id`, `work`.`work` AS `work`, `work`.`contact_id` AS `contact_id`, TIMESTAMPDIFF(MINUTE,`work`.`work_begin`,`work`.`work_end`) AS `duration_minutes` FROM `work`;
+/* 2026-03-13-1 */	DELETE FROM _settings WHERE setting_key = 'work_tasks_table_path';
+/* 2026-03-13-2 */	DELETE FROM _settings WHERE setting_key = 'work_work_project_path';
