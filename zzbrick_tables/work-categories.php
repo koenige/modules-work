@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/work
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2019-2020, 2023, 2025 Gustaf Mossakowski
+ * @copyright Copyright © 2019-2020, 2023, 2025-2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -35,8 +35,7 @@ $zz['fields'][3]['sql'] = 'SELECT category_id, category, main_category_id
 	FROM categories ORDER BY category';
 $zz['fields'][3]['show_hierarchy'] = 'main_category_id';
 $zz['fields'][3]['display_field'] = 'category';
-$zz['fields'][3]['add_details'] = wrap_path('default_tables', 'categories')
-	.sprintf('?filter[maincategory]=%d', wrap_category_id('tags'));
+$zz['fields'][3]['add_details'] = wrap_path('default_categorytree', 'tags');
 $zz['fields'][3]['show_hierarchy_subtree'] = wrap_category_id('tags');
 
 $zz['fields'][4]['title'] = 'Duration';
