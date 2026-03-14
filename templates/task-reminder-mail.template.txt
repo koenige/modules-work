@@ -19,7 +19,7 @@ Subject: Task Added/Changed (ID %%% item task_id %%%: %%% item task %%%)
 Dear %%% item contact %%%,
 
 the task list at
-%%% setting host_base %%%%%% item task_path %%%?show=%%% item task_id %%% 
+%%% setting host_base %%%%%% path work_tasks_table %%%?show=%%% item task_id %%% 
 was edited:
 
 -----------------------------------

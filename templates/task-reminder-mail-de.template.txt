@@ -19,7 +19,7 @@ Subject: Aufgabe ergänzt/geändert (ID %%% item task_id %%%: %%% item task %%%)
 %%% if female %%%Liebe%%% elseif male %%%Lieber%%% else %%%Liebe/r%%% endif %%% %%% item contact %%%,
 
 die Aufgabenliste unter
-%%% setting host_base %%%%%% item task_path %%%?show=%%% item task_id %%% 
+%%% setting host_base %%%%%% path work_tasks_table %%%?show=%%% item task_id %%% 
 wurde bearbeitet:
 
 -----------------------------------

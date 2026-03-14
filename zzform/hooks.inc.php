@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/work
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2012-2013, 2018-2019, 2021-2024 Gustaf Mossakowski
+ * @copyright Copyright © 2012-2013, 2018-2019, 2021-2024, 2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -82,10 +82,6 @@ function mf_work_task_reminder($ops) {
 		$text['categories'] = wrap_db_fetch($sql, 'category_id');
 	}
 	
-	$text['task_path'] = wrap_path('work_tasks_table');
-	if (!$text['task_path'])
-		$text['task_path'] = wrap_path('default_tables', 'tasks');
-
 	// set sender data
 	if (!empty($_SESSION['contact_id'])) {
 		$text['sender'] = $recipients[$_SESSION['contact_id']]['contact'];
