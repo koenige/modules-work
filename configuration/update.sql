@@ -29,3 +29,14 @@
 /* 2025-02-28-8 */	CREATE OR REPLACE VIEW `work_view` AS SELECT `work`.`work_id` AS `work_id`, `work`.`work_begin` AS `work_begin`, `work`.`work_end` AS `work_end`, `work`.`event_id` AS `event_id`, `work`.`work` AS `work`, `work`.`contact_id` AS `contact_id`, TIMESTAMPDIFF(MINUTE,`work`.`work_begin`,`work`.`work_end`) AS `duration_minutes` FROM `work`;
 /* 2026-03-13-1 */	DELETE FROM _settings WHERE setting_key = 'work_tasks_table_path';
 /* 2026-03-13-2 */	DELETE FROM _settings WHERE setting_key = 'work_work_project_path';
+/* 2026-05-07-1 */	DROP VIEW IF EXISTS `work_view`;
+/* 2026-05-07-2 */	RENAME TABLE `work` TO `worklogs`;
+/* 2026-05-07-3 */	ALTER TABLE `worklogs` CHANGE `work_id` `worklog_id` int unsigned NOT NULL AUTO_INCREMENT;
+/* 2026-05-07-4 */	RENAME TABLE `work_categories` TO `worklogs_categories`;
+/* 2026-05-07-5 */	ALTER TABLE `worklogs_categories` DROP INDEX `work_id_category_id`, CHANGE `work_id` `worklog_id` int unsigned NOT NULL, ADD UNIQUE KEY `worklog_category_id` (`worklog_id`,`category_id`);
+/* 2026-05-07-6 */	CREATE OR REPLACE VIEW `worklogs_view` AS SELECT `worklogs`.`worklog_id` AS `worklog_id`, `worklogs`.`work_begin` AS `work_begin`, `worklogs`.`work_end` AS `work_end`, `worklogs`.`event_id` AS `event_id`, `worklogs`.`work` AS `work`, `worklogs`.`contact_id` AS `contact_id`, TIMESTAMPDIFF(MINUTE,`worklogs`.`work_begin`,`worklogs`.`work_end`) AS `duration_minutes` FROM `worklogs`;
+/* 2026-05-07-7 */	UPDATE `_relations` SET `detail_table` = 'worklogs', `detail_id_field` = 'worklog_id' WHERE `detail_table` = 'work';
+/* 2026-05-07-8 */	UPDATE `_relations` SET `master_table` = 'worklogs', `master_field` = 'worklog_id' WHERE `master_table` = 'work';
+/* 2026-05-07-9 */	UPDATE `_relations` SET `detail_table` = 'worklogs_categories' WHERE `detail_table` = 'work_categories';
+/* 2026-05-07-10 */	UPDATE `_relations` SET `detail_field` = 'worklog_id' WHERE `detail_field` = 'work_id' AND (`detail_table` = 'worklogs_categories' OR `detail_table` = 'positions_work');
+/* 2026-05-07-11 */	UPDATE webpages SET content = REPLACE(content, '%%% forms work ', '%%% forms worklogs ') WHERE content LIKE '%\%\%\% forms work %';

@@ -14,17 +14,17 @@
 
 
 $zz['title'] = 'Categories for Working Hours';
-$zz['table'] = 'work_categories';
+$zz['table'] = 'worklogs_categories';
 
 $zz['fields'][1]['title'] = 'ID';
 $zz['fields'][1]['field_name'] = 'wc_id';
 $zz['fields'][1]['type'] = 'id';
 
-$zz['fields'][2]['title'] = 'Work';
-$zz['fields'][2]['field_name'] = 'work_id';
+$zz['fields'][2]['title'] = 'Work log';
+$zz['fields'][2]['field_name'] = 'worklog_id';
 $zz['fields'][2]['type'] = 'select';
-$zz['fields'][2]['sql'] = 'SELECT work_id, work_begin, contact
-	FROM work
+$zz['fields'][2]['sql'] = 'SELECT worklog_id, work_begin, contact
+	FROM worklogs
 	LEFT JOIN contacts USING (contact_id)
 	ORDER BY work_begin, contact';
 $zz['fields'][2]['display_field'] = 'work';
@@ -44,17 +44,17 @@ $zz['fields'][4]['type'] = 'number';
 $zz['fields'][4]['unit'] = 'min';
 
 
-$zz['sql'] = 'SELECT work_categories.*
+$zz['sql'] = 'SELECT worklogs_categories.*
 		, category, CONCAT(work_begin, " ", contact) AS work
-	FROM work_categories
+	FROM worklogs_categories
 	LEFT JOIN categories USING (category_id)
-	LEFT JOIN work USING (work_id)
+	LEFT JOIN worklogs USING (worklog_id)
 	LEFT JOIN contacts USING (contact_id)
 ';
 $zz['sqlorder'] = ' ORDER BY category';
 
-$zz['subselect']['sql'] = 'SELECT work_id, category, duration_minutes
-	FROM work_categories
+$zz['subselect']['sql'] = 'SELECT worklog_id, category, duration_minutes
+	FROM worklogs_categories
 	LEFT JOIN categories USING (category_id)
 ';
 $zz['subselect']['prefix'] = '<p><em>';

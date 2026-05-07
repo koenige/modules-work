@@ -2,22 +2,22 @@
 
 /**
  * work module
- * table definition for work
+ * table definition for worklogs (working hours)
  *
  * Part of »Zugzwang Project«
  * https://www.zugzwang.org/modules/work
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2009-2013, 2015-2017, 2019-2020, 2022-2023, 2025 Gustaf Mossakowski
+ * @copyright Copyright © 2009-2013, 2015-2017, 2019-2020, 2022-2023, 2025-2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
 
-$zz['table'] = 'work';
+$zz['table'] = 'worklogs';
 $zz['title'] = 'Working Hours';
 
 $zz['fields'][1]['title'] = 'ID';
-$zz['fields'][1]['field_name'] = 'work_id';
+$zz['fields'][1]['field_name'] = 'worklog_id';
 $zz['fields'][1]['type'] = 'id';
 
 $zz['fields'][2]['title'] = 'Start';
@@ -63,7 +63,7 @@ $zz['fields'][5]['type'] = 'memo';
 $zz['fields'][5]['format'] = 'markdown';
 $zz['fields'][5]['list_append_next'] = true;
 
-$zz['fields'][12] = zzform_include('work-categories');
+$zz['fields'][12] = zzform_include('worklogs-categories');
 $zz['fields'][12]['title'] = 'Tags';
 $zz['fields'][12]['type'] = 'subtable';
 $zz['fields'][12]['fields'][2]['type'] = 'foreign_key';
@@ -97,7 +97,7 @@ if (wrap_package('finance')) {
 	$zz['fields'][13]['max_records'] = 1;
 	$zz['fields'][13]['fields'][3]['type'] = 'foreign_key';
 	$zz['fields'][13]['fields'][4]['hide_in_form'] = true;
-	$zz['fields'][13]['subselect']['sql'] = 'SELECT work_id, document_no, position_no
+	$zz['fields'][13]['subselect']['sql'] = 'SELECT worklog_id, document_no, position_no
 	    FROM positions_work
 	    LEFT JOIN positions USING (position_id)
 	    LEFT JOIN documents USING (document_id)';
@@ -130,14 +130,14 @@ $zz['fields'][8]['hide_in_form'] = true;
 $zz['fields'][8]['exclude_from_search'] = true;
 
 
-$zz['sql'] = 'SELECT work.* 
+$zz['sql'] = 'SELECT worklogs.* 
 		, event
 		, events.identifier
 		, CONCAT(YEAR(work_begin), "/", WEEK(work_begin, 1)) AS week
 		, CONCAT(YEAR(work_begin), "/", MONTH(work_begin)) AS month
 		, contacts.contact
-		, (SELECT duration_minutes * 60 FROM work_view WHERE work_view.work_id = work.work_id) AS duration_minutes
-	FROM work
+		, (SELECT duration_minutes * 60 FROM worklogs_view WHERE worklogs_view.worklog_id = worklogs.worklog_id) AS duration_minutes
+	FROM worklogs
 	LEFT JOIN contacts USING (contact_id)
 	LEFT JOIN events USING (event_id)
 ';
@@ -156,7 +156,7 @@ if (!empty($_GET['where']['event_id']))
 	$where_condition[] = sprintf('event_id = %d', $_GET['where']['event_id']);
 $zz['filter'][1]['sql'] = 'SELECT DISTINCT YEAR(work_begin) AS year_idf
 		, YEAR(work_begin) AS year
-	FROM work
+	FROM worklogs
 	'.($where_condition ? 'WHERE '.implode(' AND ', $where_condition) : '').'
 	ORDER BY YEAR(work_begin) DESC';
 $zz['filter'][1]['title'] = wrap_text('Year');
@@ -169,7 +169,7 @@ if (!empty($_GET['filter']['year'])) {
 	$zz['filter'][2]['sql'] = 'SELECT DISTINCT CONCAT(YEAR(work_begin), "/", MONTH(work_begin)) AS month
 			, CONCAT(YEAR(work_begin), "/", MONTH(work_begin)) AS month
 			, work_begin
-		FROM work
+		FROM worklogs
 		'.($where_condition ? 'WHERE '.implode(' AND ', $where_condition) : '').'
 		ORDER BY work_begin DESC';
 	$zz['filter'][2]['title'] = wrap_text('Month');
@@ -184,9 +184,9 @@ if (!empty($_GET['filter']['month']))
 $zz['filter'][3]['title'] = wrap_text('Tag');
 $zz['filter'][3]['sql'] = 'SELECT category_id,
 		CONCAT(SUBSTRING(path, 6), " ("
-			, (SELECT SUM(IFNULL(work_categories.duration_minutes, work_view.duration_minutes))
-			FROM work_view LEFT JOIN work_categories USING (work_id)
-			WHERE work_categories.category_id = categories.category_id
+			, (SELECT SUM(IFNULL(worklogs_categories.duration_minutes, worklogs_view.duration_minutes))
+			FROM worklogs_view LEFT JOIN worklogs_categories USING (worklog_id)
+			WHERE worklogs_categories.category_id = categories.category_id
 			'.($where_condition ? 'AND '.implode(' AND ', $where_condition) : '').'), ")"
 		) AS category_time, path
 	FROM categories
@@ -197,14 +197,14 @@ $zz['filter'][3]['sql'] = 'SELECT category_id,
 
 $zz['filter'][3]['identifier'] = 'tag';
 $zz['filter'][3]['type'] = 'list';
-$zz['filter'][3]['sql_join'] = 'LEFT JOIN work_categories USING (work_id)';
-$zz['filter'][3]['where'] = 'work_categories.category_id';
+$zz['filter'][3]['sql_join'] = 'LEFT JOIN worklogs_categories USING (worklog_id)';
+$zz['filter'][3]['where'] = 'worklogs_categories.category_id';
 
 if (wrap_package('finance')) {
 	$zz['filter'][4]['title'] = wrap_text('Positions');
 	$zz['filter'][4]['identifier'] = 'positions';
 	$zz['filter'][4]['type'] = 'list';
-	$zz['filter'][4]['sql_join'] = 'LEFT JOIN positions_work USING (work_id)';
+	$zz['filter'][4]['sql_join'] = 'LEFT JOIN positions_work USING (worklog_id)';
 	$zz['filter'][4]['where_if'][1] = 'ISNULL(position_work_id)';
 	$zz['filter'][4]['where_if'][2] = 'NOT ISNULL(position_work_id)';
 	$zz['filter'][4]['selection'][1] = wrap_text('without Positions');
