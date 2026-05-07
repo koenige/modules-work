@@ -41,3 +41,4 @@
 /* 2026-05-07-10 */	UPDATE `_relations` SET `detail_field` = 'worklog_id' WHERE `detail_field` = 'work_id' AND (`detail_table` = 'worklogs_categories' OR `detail_table` = 'positions_work');
 /* 2026-05-07-11 */	UPDATE webpages SET content = REPLACE(content, '%%% forms work ', '%%% forms worklogs ') WHERE content LIKE '%\%\%\% forms work %';
 /* 2026-05-07-12 */	UPDATE webpages SET content = REPLACE(content, '%%% tables work ', '%%% tables worklogs ') WHERE content LIKE '%\%\%\% tables work %';
+/* 2026-05-07-13 */	UPDATE webpages SET parameters = REPLACE(parameters, '&route=work_work_project', '&route=work_project_worklogs') WHERE parameters LIKE '%&route=work_work_project%';
