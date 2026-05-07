@@ -40,3 +40,4 @@
 /* 2026-05-07-9 */	UPDATE `_relations` SET `detail_table` = 'worklogs_categories' WHERE `detail_table` = 'work_categories';
 /* 2026-05-07-10 */	UPDATE `_relations` SET `detail_field` = 'worklog_id' WHERE `detail_field` = 'work_id' AND (`detail_table` = 'worklogs_categories' OR `detail_table` = 'positions_work');
 /* 2026-05-07-11 */	UPDATE webpages SET content = REPLACE(content, '%%% forms work ', '%%% forms worklogs ') WHERE content LIKE '%\%\%\% forms work %';
+/* 2026-05-07-12 */	UPDATE webpages SET content = REPLACE(content, '%%% tables work ', '%%% tables worklogs ') WHERE content LIKE '%\%\%\% tables work %';
