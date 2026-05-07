@@ -14,7 +14,7 @@
 
 
 $zz['table'] = 'worklogs';
-$zz['title'] = 'Working Hours';
+$zz['title'] = 'Work logs';
 
 $zz['fields'][1]['title'] = 'ID';
 $zz['fields'][1]['field_name'] = 'worklog_id';

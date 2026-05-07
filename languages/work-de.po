@@ -5,7 +5,7 @@
 # https://www.zugzwang.org/modules/work
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2020, 2022 Gustaf Mossakowski
+# @copyright Copyright © 2020, 2022, 2025-2026 Gustaf Mossakowski
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
 msgid ""
@@ -32,15 +32,15 @@ msgstr "Aufgaben"
 msgid "Task"
 msgstr "Aufgabe"
 
-#: zzbrick_tables/tasks.php zzbrick_tables/work.php
+#: zzbrick_tables/tasks.php zzbrick_tables/worklogs.php
 msgid "Description"
 msgstr "Beschreibung"
 
-#: zzbrick_tables/tasks.php zzbrick_tables/work.php
+#: zzbrick_tables/tasks.php zzbrick_tables/worklogs.php
 msgid "Tags"
 msgstr "Stichworte"
 
-#: zzbrick_tables/tasks.php zzbrick_tables/work.php
+#: zzbrick_tables/tasks.php zzbrick_tables/worklogs.php
 msgid "Tag"
 msgstr "Stichwort"
 
@@ -176,62 +176,62 @@ msgstr "Aufgabenkategorien"
 msgid "Tasks/Contacts"
 msgstr "Aufgaben/Kontakte"
 
-#: zzbrick_tables/work.php
-msgid "Working Hours"
-msgstr "Arbeitszeit"
+#: zzbrick_tables/worklogs.php
+msgid "Work logs"
+msgstr "Arbeitszeiten"
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "Start"
 msgstr "Start"
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "End"
 msgstr "Ende"
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "Project"
 msgstr "Projekt"
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "Website for project "
 msgstr "Website für Projekt "
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "Δ Time"
 msgstr "Δ Zeit"
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "Who?"
 msgstr "Wer?"
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "Year"
 msgstr "Jahr"
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "Month"
 msgstr "Monat"
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "The end must be after the beginning."
 msgstr "Das Ende muss nach dem Beginn liegen."
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "without Positions"
 msgstr "ohne Positionen"
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "with Positions"
 msgstr "mit Positionen"
 
-#: zzbrick_tables/work-categories.php
-msgid "Categories for Working Hours"
-msgstr "Kategorien für Arbeitszeit"
+#: zzbrick_tables/worklogs-categories.php
+msgid "Work log categories"
+msgstr "Kategorien für Arbeitszeiten"
 
-#: zzbrick_tables/work-categories.php
-msgid "Work"
-msgstr "Arbeit"
+#: zzbrick_tables/worklogs-categories.php
+msgid "Work log"
+msgstr "Arbeitszeit"
 
-#: zzbrick_tables/work-categories.php
+#: zzbrick_tables/worklogs-categories.php
 msgid "Duration"
 msgstr "Dauer"

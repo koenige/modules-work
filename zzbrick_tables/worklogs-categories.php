@@ -2,7 +2,7 @@
 
 /**
  * work module
- * table definition for work/categories
+ * table definition for work logs/categories
  *
  * Part of »Zugzwang Project«
  * https://www.zugzwang.org/modules/work
@@ -13,7 +13,7 @@
  */
 
 
-$zz['title'] = 'Categories for Working Hours';
+$zz['title'] = 'Work log categories';
 $zz['table'] = 'worklogs_categories';
 
 $zz['fields'][1]['title'] = 'ID';

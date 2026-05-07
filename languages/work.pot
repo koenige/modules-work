@@ -5,7 +5,7 @@
 # https://www.zugzwang.org/modules/work
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2020, 2022, 2025 Gustaf Mossakowski
+# @copyright Copyright © 2020, 2022, 2025-2026 Gustaf Mossakowski
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
 msgid ""
@@ -32,14 +32,17 @@ msgid "Task"
 msgstr ""
 
 #: zzbrick_tables/tasks.php
+#: zzbrick_tables/worklogs.php
 msgid "Description"
 msgstr ""
 
 #: zzbrick_tables/tasks.php
+#: zzbrick_tables/worklogs.php
 msgid "Tags"
 msgstr ""
 
 #: zzbrick_tables/tasks.php
+#: zzbrick_tables/worklogs.php
 msgid "Tag"
 msgstr ""
 
@@ -175,75 +178,63 @@ msgstr ""
 msgid "Tasks/Contacts"
 msgstr ""
 
-#: zzbrick_tables/work.php
-msgid "Working Hours"
+#: zzbrick_tables/worklogs.php
+msgid "Work logs"
 msgstr ""
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "Start"
 msgstr ""
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "End"
 msgstr ""
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "Project"
 msgstr ""
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "Website for project "
 msgstr ""
 
-#: zzbrick_tables/work.php
-msgid "Description"
-msgstr ""
-
-#: zzbrick_tables/work.php
-msgid "Tags"
-msgstr ""
-
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "Δ Time"
 msgstr ""
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "Who?"
 msgstr ""
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "Year"
 msgstr ""
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "Month"
 msgstr ""
 
-#: zzbrick_tables/work.php
-msgid "Tag"
-msgstr ""
-
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "The end must be after the beginning."
 msgstr ""
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "without Positions"
 msgstr ""
 
-#: zzbrick_tables/work.php
+#: zzbrick_tables/worklogs.php
 msgid "with Positions"
 msgstr ""
 
-#: zzbrick_tables/work-categories.php
-msgid "Categories for Working Hours"
+#: zzbrick_tables/worklogs-categories.php
+msgid "Work log categories"
 msgstr ""
 
-#: zzbrick_tables/work-categories.php
-msgid "Work"
+#: zzbrick_tables/worklogs-categories.php
+msgid "Work log"
 msgstr ""
 
-#: zzbrick_tables/work-categories.php
+#: zzbrick_tables/worklogs-categories.php
 msgid "Duration"
 msgstr ""
 
