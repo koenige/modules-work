@@ -88,7 +88,7 @@ if (wrap_db_data('work_logins_count') == 1) {
 }
 
 if (wrap_package('finance')) {
-	$zz['fields'][13] = zzform_include('positions-work');
+	$zz['fields'][13] = zzform_include('positions-worklogs');
 	$zz['fields'][13]['title'] = 'Position';
 	$zz['fields'][13]['title_tab'] = 'Pos.';
 	$zz['fields'][13]['type'] = 'subtable';
@@ -98,7 +98,7 @@ if (wrap_package('finance')) {
 	$zz['fields'][13]['fields'][3]['type'] = 'foreign_key';
 	$zz['fields'][13]['fields'][4]['hide_in_form'] = true;
 	$zz['fields'][13]['subselect']['sql'] = 'SELECT worklog_id, document_no, position_no
-	    FROM positions_work
+	    FROM positions_worklogs
 	    LEFT JOIN positions USING (position_id)
 	    LEFT JOIN documents USING (document_id)';
 	$zz['fields'][13]['subselect']['concat_fields'] = '/';
@@ -204,7 +204,7 @@ if (wrap_package('finance')) {
 	$zz['filter'][4]['title'] = wrap_text('Positions');
 	$zz['filter'][4]['identifier'] = 'positions';
 	$zz['filter'][4]['type'] = 'list';
-	$zz['filter'][4]['sql_join'] = 'LEFT JOIN positions_work USING (worklog_id)';
+	$zz['filter'][4]['sql_join'] = 'LEFT JOIN positions_worklogs USING (worklog_id)';
 	$zz['filter'][4]['where_if'][1] = 'ISNULL(position_work_id)';
 	$zz['filter'][4]['where_if'][2] = 'NOT ISNULL(position_work_id)';
 	$zz['filter'][4]['selection'][1] = wrap_text('without Positions');
