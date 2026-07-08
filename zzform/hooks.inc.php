@@ -54,7 +54,7 @@ function mf_work_task_reminder($ops) {
 	$sql = 'SELECT contact_id, identifier, contact
 			, (SELECT identification FROM contactdetails
 				WHERE contactdetails.contact_id = contacts.contact_id
-				AND channel_category_id = /*_ID categories provider/e-mail _*/
+				AND channel_category_id = /*_ID categories channel/e-mail _*/
 				LIMIT 1
 			) AS e_mail
 			, IF(sex = "female", 1, NULL) AS female
