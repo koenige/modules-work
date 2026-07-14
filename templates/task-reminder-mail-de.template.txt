@@ -33,7 +33,7 @@ wurde bearbeitet:
 -----------------------------------
 
 Priorität:   %%% item priority %%% 
-Deadline:    %%% item deadline format=date_plain %%% 
+Frist:       %%% item deadline format=date_plain %%% 
 Erledigt:    %%% if done %%%%%% item done format=date_plain %%%%%% else %%%noch nicht%%% endif %%% 
 Aufgabe von: %%% item author_contact %%% 
 Aufgabe für: %%% loop task_for %%%%%% item contact %%%%%% loopposition first|middle "," %%% %%% loop end %%% 
