@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/work
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2009-2013, 2017, 2019-2025 Gustaf Mossakowski
+ * @copyright Copyright © 2009-2013, 2017, 2019-2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
  
@@ -128,7 +128,6 @@ $zz['fields'][13]['field_name'] = 'reminder';
 $zz['fields'][13]['type'] = 'option';
 $zz['fields'][13]['type_detail'] = 'select';
 $zz['fields'][13]['enum'] = ['yes', 'no'];
-$zz['fields'][13]['enum_title'] = [wrap_text('yes'), wrap_text('no')];
 $zz['fields'][13]['default'] = 'no';
 $zz['fields'][13]['if']['insert']['default'] = 'yes';
 $zz['fields'][13]['explanation'] = 'If “yes”, the task is sent as an email to the people involved.';
