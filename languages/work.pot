@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- work module\n"
-"POT-Creation-Date: 2026-07-14 04:53+0000\n"
+"POT-Creation-Date: 2026-07-14 17:45+0000\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -15,6 +15,40 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/work-today.template.txt:13
+#: zzbrick_tables/worklogs.php:39
+msgid "Project"
+msgstr ""
+
+#: templates/work-today.template.txt:13
+#: zzbrick_tables/tasks.php:99
+msgid "Time"
+msgstr ""
+
+#: templates/work-today.template.txt:13
+msgid "Δ"
+msgstr ""
+
+#: templates/work-today.template.txt:16
+msgid "%d Projects"
+msgstr ""
+
+#: templates/work-today.template.txt:20
+msgid "Nothing done so far."
+msgstr ""
+
+#: templates/work-today.template.txt:29
+msgid "Edit working time today …"
+msgstr ""
+
+#: templates/work-today.template.txt:30
+msgid "Add working time"
+msgstr ""
+
+#: templates/work-today.template.txt:31
+msgid "Show working time yesterday"
+msgstr ""
 
 #: zzbrick_tables/tasks.php:16
 msgid "Tasks"
@@ -57,23 +91,16 @@ msgstr ""
 msgid "Priority"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:75
 #: zzbrick_tables/tasks.php:77
 msgid "high"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:75
 #: zzbrick_tables/tasks.php:77
 msgid "low"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:75
 #: zzbrick_tables/tasks.php:77
 msgid "medium"
-msgstr ""
-
-#: zzbrick_tables/tasks.php:75
-msgid "none"
 msgstr ""
 
 #: zzbrick_tables/tasks.php:78
@@ -90,10 +117,6 @@ msgstr ""
 
 #: zzbrick_tables/tasks.php:91
 msgid "Deadline"
-msgstr ""
-
-#: zzbrick_tables/tasks.php:99
-msgid "Time"
 msgstr ""
 
 #: zzbrick_tables/tasks.php:103
@@ -220,10 +243,6 @@ msgstr ""
 
 #: zzbrick_tables/worklogs.php:37
 msgid "The end must be after the beginning."
-msgstr ""
-
-#: zzbrick_tables/worklogs.php:39
-msgid "Project"
 msgstr ""
 
 #: zzbrick_tables/worklogs.php:51

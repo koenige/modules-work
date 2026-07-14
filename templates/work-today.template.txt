@@ -1,0 +1,31 @@
+# work module
+# Template for work today
+#
+# Part of »Zugzwang Project«
+# https://www.zugzwang.org/modules/work
+#
+# @author Gustaf Mossakowski <gustaf@koenige.org>
+# @copyright Copyright © 2017-2019, 2023-2026 Gustaf Mossakowski
+# @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
+#
+<table>
+<thead>
+<tr><th>%%% text Time %%%</th> <th class="number">%%% text Δ %%%</th> <th>%%% text Project %%%</th></tr> 
+</thead>
+<tfoot>
+<tr><th>&nbsp;</th> <th class="number">%%% item sum_duration %%%&nbsp;h</th> <th class="number">%%% text "%d Projects" sum_projects %%%</th></tr> 
+</tfoot>
+<tbody>
+%%% if no_work %%%
+<tr><td colspan="3">%%% text Nothing done so far. %%%</td></tr>
+%%% else %%%
+%%% loop start %%%
+<tr><td title="%%% item work format=html_escape %%%"><a href="%%% path work_worklogs_table %%%?edit=%%% item worklog_id %%%">%%% item begin %%%–%%% item end %%%</a></td> <td class="number">%%% item duration_time %%% h</td> <td><a href="%%% path events_project identifier %%%">%%% item event %%%</a></td></tr>
+%%% loop end %%%
+%%% endif %%%
+</tbody>
+</table>
+
+<p><a href="%%% path work_worklogs_table %%%?q=today&scope=work_begin">%%% text Edit working time today … %%%</a> &middot;
+<a href="%%% path work_worklogs_table %%%?q=today&scope=work_begin&add">%%% text Add working time %%%</a></p>
+<p><a href="%%% path work_worklogs_table %%%?q=yesterday&scope=work_begin">%%% text Show working time yesterday %%%</a></p>

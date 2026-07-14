@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project – Work Module\n"
-"POT-Creation-Date: 2026-07-14 04:53+0000\n"
+"POT-Creation-Date: 2026-07-14 17:45+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Gustaf Mossakowski <gustaf@koenige.org>\n"
 "Language-Team: \n"
@@ -22,6 +22,38 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Generator: Poedit 3.9\n"
+
+#: templates/work-today.template.txt:13 zzbrick_tables/worklogs.php:39
+msgid "Project"
+msgstr "Projekt"
+
+#: templates/work-today.template.txt:13 zzbrick_tables/tasks.php:99
+msgid "Time"
+msgstr "Zeit"
+
+#: templates/work-today.template.txt:13
+msgid "Δ"
+msgstr "Δ"
+
+#: templates/work-today.template.txt:16
+msgid "%d Projects"
+msgstr "%d Projekte"
+
+#: templates/work-today.template.txt:20
+msgid "Nothing done so far."
+msgstr "Bisher noch nichts getan."
+
+#: templates/work-today.template.txt:29
+msgid "Edit working time today …"
+msgstr "Bearbeite Arbeitszeit von heute …"
+
+#: templates/work-today.template.txt:30
+msgid "Add working time"
+msgstr "Arbeitszeit hinzufügen"
+
+#: templates/work-today.template.txt:31
+msgid "Show working time yesterday"
+msgstr "Zeige Arbeitszeit gestern"
 
 #: zzbrick_tables/tasks.php:16
 msgid "Tasks"
@@ -58,21 +90,17 @@ msgstr "<abbr title=\"Priorität\">!</abbr>"
 msgid "Priority"
 msgstr "Priorität"
 
-#: zzbrick_tables/tasks.php:75 zzbrick_tables/tasks.php:77
+#: zzbrick_tables/tasks.php:77
 msgid "high"
 msgstr "hoch"
 
-#: zzbrick_tables/tasks.php:75 zzbrick_tables/tasks.php:77
+#: zzbrick_tables/tasks.php:77
 msgid "low"
 msgstr "gering"
 
-#: zzbrick_tables/tasks.php:75 zzbrick_tables/tasks.php:77
+#: zzbrick_tables/tasks.php:77
 msgid "medium"
 msgstr "mittel"
-
-#: zzbrick_tables/tasks.php:75
-msgid "none"
-msgstr "keine"
 
 #: zzbrick_tables/tasks.php:78
 msgid "none (= idea)"
@@ -89,10 +117,6 @@ msgstr "Reihenfolge"
 #: zzbrick_tables/tasks.php:91
 msgid "Deadline"
 msgstr "Frist"
-
-#: zzbrick_tables/tasks.php:99
-msgid "Time"
-msgstr "Zeit"
 
 #: zzbrick_tables/tasks.php:103
 msgid "Created"
@@ -219,10 +243,6 @@ msgstr "Ende"
 msgid "The end must be after the beginning."
 msgstr "Das Ende muss nach dem Beginn liegen."
 
-#: zzbrick_tables/worklogs.php:39
-msgid "Project"
-msgstr "Projekt"
-
 #: zzbrick_tables/worklogs.php:51
 msgid "Website for project "
 msgstr "Website für Projekt "
@@ -278,3 +298,6 @@ msgstr "Arbeitszeit"
 #: zzbrick_tables/worklogs-categories.php:41
 msgid "Duration"
 msgstr "Dauer"
+
+#~ msgid "none"
+#~ msgstr "keine"
