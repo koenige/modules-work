@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- work module\n"
-"POT-Creation-Date: 2026-07-03 09:53+0000\n"
+"POT-Creation-Date: 2026-07-14 04:53+0000\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -16,202 +16,249 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: zzbrick_tables/tasks.php
-msgid "<abbr title=\"Priority\">!</abbr>"
-msgstr ""
-
-#: zzbrick_tables/tasks.php
-msgid "Author"
-msgstr ""
-
-#: zzbrick_tables/tasks.php
-msgid "Deadline"
-msgstr ""
-
-#: zzbrick_tables/tasks.php
-#: zzbrick_tables/worklogs.php
-msgid "Description"
-msgstr ""
-
-#: zzbrick_tables/tasks.php
-msgid "Done on"
-msgstr ""
-
-#: zzbrick_tables/tasks.php
-msgid "If “yes”, the task is sent as an email to the people involved."
-msgstr ""
-
-#: zzbrick_tables/tasks.php
-msgid "Priority"
-msgstr ""
-
-#: zzbrick_tables/tasks.php
-msgid "Reminder"
-msgstr ""
-
-#: zzbrick_tables/tasks.php
-msgid "Seq."
-msgstr ""
-
-#: zzbrick_tables/tasks.php
-msgid "Sequence"
-msgstr ""
-
-#: zzbrick_tables/tasks.php
-#: zzbrick_tables/worklogs.php
-msgid "Tags"
-msgstr ""
-
-#: zzbrick_tables/tasks.php
-msgid "Task for"
-msgstr ""
-
-#: zzbrick_tables/tasks.php
-#: zzform/hooks.inc.php
+#: zzbrick_tables/tasks.php:16
 msgid "Tasks"
 msgstr ""
 
-#: zzbrick_tables/tasks.php
-msgid "Time"
+#: zzbrick_tables/tasks.php:19
+#: zzbrick_tables/tasks-categories.php:19
+#: zzbrick_tables/tasks-contacts.php:19
+#: zzbrick_tables/worklogs.php:19
+#: zzbrick_tables/worklogs-categories.php:19
+msgid "ID"
 msgstr ""
 
+#: zzbrick_tables/tasks.php:23
+#: zzbrick_tables/tasks.php:157
+#: zzbrick_tables/tasks-categories.php:23
+#: zzbrick_tables/tasks-contacts.php:23
+msgid "Task"
+msgstr ""
+
+#: zzbrick_tables/tasks.php:30
+#: zzbrick_tables/worklogs.php:60
+msgid "Description"
+msgstr ""
+
+#: zzbrick_tables/tasks.php:39
+#: zzbrick_tables/worklogs.php:67
+msgid "Tags"
+msgstr ""
+
+#: zzbrick_tables/tasks.php:57
+msgid "Task for"
+msgstr ""
+
+#: zzbrick_tables/tasks.php:72
+msgid "<abbr title=\"Priority\">!</abbr>"
+msgstr ""
+
+#: zzbrick_tables/tasks.php:73
+msgid "Priority"
+msgstr ""
+
+#: zzbrick_tables/tasks.php:75
 #: zzbrick_tables/tasks.php:77
 msgid "high"
 msgstr ""
 
+#: zzbrick_tables/tasks.php:75
 #: zzbrick_tables/tasks.php:77
 msgid "low"
 msgstr ""
 
+#: zzbrick_tables/tasks.php:75
 #: zzbrick_tables/tasks.php:77
 msgid "medium"
+msgstr ""
+
+#: zzbrick_tables/tasks.php:75
+msgid "none"
 msgstr ""
 
 #: zzbrick_tables/tasks.php:78
 msgid "none (= idea)"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:131
+#: zzbrick_tables/tasks.php:86
+msgid "Seq."
+msgstr ""
+
+#: zzbrick_tables/tasks.php:87
+msgid "Sequence"
+msgstr ""
+
+#: zzbrick_tables/tasks.php:91
+msgid "Deadline"
+msgstr ""
+
+#: zzbrick_tables/tasks.php:99
+msgid "Time"
+msgstr ""
+
+#: zzbrick_tables/tasks.php:103
+msgid "Created"
+msgstr ""
+
+#: zzbrick_tables/tasks.php:109
+msgid "Done on"
+msgstr ""
+
+#: zzbrick_tables/tasks.php:114
+msgid "Author"
+msgstr ""
+
+#: zzbrick_tables/tasks.php:127
+msgid "Reminder"
+msgstr ""
+
+#: zzbrick_tables/tasks.php:130
 msgid "no"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:131
+#: zzbrick_tables/tasks.php:130
 msgid "yes"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:153
+#: zzbrick_tables/tasks.php:133
+msgid "If “yes”, the task is sent as an email to the people involved."
+msgstr ""
+
+#: zzbrick_tables/tasks.php:135
+msgid "Sort order"
+msgstr ""
+
+#: zzbrick_tables/tasks.php:152
 msgid "Type"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:157
+#: zzbrick_tables/tasks.php:156
 msgid "Idea"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:158
-#: zzbrick_tables/tasks-categories.php
-#: zzbrick_tables/tasks-contacts.php
-msgid "Task"
-msgstr ""
-
-#: zzbrick_tables/tasks.php:161
+#: zzbrick_tables/tasks.php:160
 msgid "Status"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:165
+#: zzbrick_tables/tasks.php:164
 msgid "pending"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:166
+#: zzbrick_tables/tasks.php:165
 msgid "done"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:178
+#: zzbrick_tables/tasks.php:177
 #: zzbrick_tables/worklogs.php:184
 msgid "Tag"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:190
+#: zzbrick_tables/tasks.php:189
 msgid "Period"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:202
+#: zzbrick_tables/tasks.php:201
 msgid "long ago"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:203
+#: zzbrick_tables/tasks.php:202
 msgid "minus four weeks"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:204
+#: zzbrick_tables/tasks.php:203
 msgid "last week"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:205
+#: zzbrick_tables/tasks.php:204
 msgid "this week"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:206
+#: zzbrick_tables/tasks.php:205
 msgid "next week"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:207
+#: zzbrick_tables/tasks.php:206
 msgid "plus four weeks"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:208
+#: zzbrick_tables/tasks.php:207
 msgid "far away"
 msgstr ""
 
-#: zzbrick_tables/tasks.php:209
+#: zzbrick_tables/tasks.php:208
 msgid "no deadline"
 msgstr ""
 
-#: zzbrick_tables/tasks-categories.php
+#: zzbrick_tables/tasks-categories.php:16
 msgid "Task Categories"
 msgstr ""
 
-#: zzbrick_tables/tasks-contacts.php
+#: zzbrick_tables/tasks-categories.php:30
+#: zzbrick_tables/worklogs-categories.php:32
+msgid "Category"
+msgstr ""
+
+#: zzbrick_tables/tasks-contacts.php:16
 msgid "Tasks/Contacts"
 msgstr ""
 
-#: zzbrick_tables/worklogs.php
-msgid "End"
+#: zzbrick_tables/tasks-contacts.php:30
+msgid "Contact"
 msgstr ""
 
-#: zzbrick_tables/worklogs.php
-msgid "Project"
-msgstr ""
-
-#: zzbrick_tables/worklogs.php
-msgid "Start"
-msgstr ""
-
-#: zzbrick_tables/worklogs.php
-msgid "The end must be after the beginning."
-msgstr ""
-
-#: zzbrick_tables/worklogs.php
-msgid "Who?"
-msgstr ""
-
-#: zzbrick_tables/worklogs.php
+#: zzbrick_tables/worklogs.php:17
 msgid "Work logs"
 msgstr ""
 
-#: zzbrick_tables/worklogs.php
-msgid "Δ Time"
+#: zzbrick_tables/worklogs.php:23
+msgid "Start"
+msgstr ""
+
+#: zzbrick_tables/worklogs.php:30
+msgid "End"
+msgstr ""
+
+#: zzbrick_tables/worklogs.php:37
+msgid "The end must be after the beginning."
+msgstr ""
+
+#: zzbrick_tables/worklogs.php:39
+msgid "Project"
 msgstr ""
 
 #: zzbrick_tables/worklogs.php:51
 msgid "Website for project "
 msgstr ""
 
-#: zzbrick_tables/worklogs.php:162
-msgid "Year"
+#: zzbrick_tables/worklogs.php:73
+msgid "Who?"
 msgstr ""
 
+#: zzbrick_tables/worklogs.php:92
+#: zzbrick_tables/worklogs-categories.php
+msgid "Position"
+msgstr ""
+
+#: zzbrick_tables/worklogs.php:93
+#: zzbrick_tables/worklogs-categories.php
+msgid "Pos."
+msgstr ""
+
+#: zzbrick_tables/worklogs.php:108
+msgid "Δ Time"
+msgstr ""
+
+#: zzbrick_tables/worklogs.php:120
+msgid "Week"
+msgstr ""
+
+#: zzbrick_tables/worklogs.php:126
 #: zzbrick_tables/worklogs.php:175
 msgid "Month"
+msgstr ""
+
+#: zzbrick_tables/worklogs.php:162
+msgid "Year"
 msgstr ""
 
 #: zzbrick_tables/worklogs.php:204
@@ -226,30 +273,14 @@ msgstr ""
 msgid "with Positions"
 msgstr ""
 
-#: zzbrick_tables/worklogs-categories.php
-msgid "Duration"
-msgstr ""
-
-#: zzbrick_tables/worklogs-categories.php
-msgid "Pos."
-msgstr ""
-
-#: zzbrick_tables/worklogs-categories.php
-msgid "Position"
-msgstr ""
-
-#: zzbrick_tables/worklogs-categories.php
-msgid "Week"
-msgstr ""
-
-#: zzbrick_tables/worklogs-categories.php
-msgid "Work log"
-msgstr ""
-
-#: zzbrick_tables/worklogs-categories.php
+#: zzbrick_tables/worklogs-categories.php:16
 msgid "Work log categories"
 msgstr ""
 
-#: zzbrick_tables/worklogs-categories.php
-msgid "Worklog"
+#: zzbrick_tables/worklogs-categories.php:23
+msgid "Work log"
+msgstr ""
+
+#: zzbrick_tables/worklogs-categories.php:41
+msgid "Duration"
 msgstr ""
