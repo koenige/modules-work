@@ -18,30 +18,30 @@
 <tr><th>%%% item sum_tasks %%%&nbsp;%%% text To dos %%%</th> <th class="number">%%% text "%d Projects" sum_projects %%%</th></tr> 
 </tfoot>
 %%% loop tasks %%%
-<tr><td title="%%% item task_description format=html_escape %%%"><a href="/projects/todo?q=today&amp;scope=deadline&amp;edit=%%% item task_id %%%">%%% item task %%%</a></td> <td><a href="%%% path events_project identifier %%%">%%% item event %%%</a></td></tr>
+<tr><td title="%%% item task_description format=html_escape %%%"><a href="%%% path work_tasks_table %%%?q=today&amp;scope=deadline&amp;edit=%%% item task_id %%%">%%% item task %%%</a></td> <td><a href="%%% path events_project identifier %%%">%%% item event %%%</a></td></tr>
 %%% loop end %%%
 </table>
 %%% loop end %%%
 
-<p><a href="/projects/todo?q=today&amp;scope=deadline">%%% text Edit To dos today … %%%</a> &middot;
-<a href="/projects/todo?q=today&amp;scope=deadline&amp;add">%%% text Add To do %%%</a></p>
+<p><a href="%%% path work_tasks_table %%%?q=today&amp;scope=deadline">%%% text Edit To dos today … %%%</a> &middot;
+<a href="%%% path work_tasks_table %%%?q=today&amp;scope=deadline&amp;add">%%% text Add To do %%%</a></p>
 
 <ul class="todo_list">
 %%% if last_week %%%
-<li><strong>%%% item last_week %%%</strong> <a href="/projects/todo?filter[period]=3">%%% text To dos last week %%%</a></li>
+<li><strong>%%% item last_week %%%</strong> <a href="%%% path work_tasks_table %%%?filter[period]=3">%%% text To dos last week %%%</a></li>
 %%% endif %%%
-<li><strong>%%% item this_week %%%</strong> <a href="/projects/todo?filter[period]=4">%%% text To dos this week %%%</a></li>
+<li><strong>%%% item this_week %%%</strong> <a href="%%% path work_tasks_table %%%?filter[period]=4">%%% text To dos this week %%%</a></li>
 %%% if next_week %%%
-<li><strong>%%% item next_week %%%</strong> <a href="/projects/todo?filter[period]=5">%%% text To dos next week %%%</a></li>
+<li><strong>%%% item next_week %%%</strong> <a href="%%% path work_tasks_table %%%?filter[period]=5">%%% text To dos next week %%%</a></li>
 %%% endif %%%
 %%% if past %%%
-<li><strong>%%% item past %%%</strong> <a href="/projects/todo?q=%3C+today&amp;scope=tasks.deadline&amp;order=deadline&amp;dir=desc&&amp;filter[period]=0&amp;filter[type]=0">%%% text Past To dos %%%</a></li>
+<li><strong>%%% item past %%%</strong> <a href="%%% path work_tasks_table %%%?q=%3C+today&amp;scope=tasks.deadline&amp;order=deadline&amp;dir=desc&amp;filter[period]=0&amp;filter[type]=0">%%% text Past To dos %%%</a></li>
 %%% endif %%%
 %%% if future %%%
-<li><strong>%%% item future %%%</strong> <a href="/projects/todo?q=%3E+today&amp;scope=tasks.deadline&amp;filter[period]=0&amp;filter[type]=0">%%% text Future To dos %%%</a></li>
+<li><strong>%%% item future %%%</strong> <a href="%%% path work_tasks_table %%%?q=%3E+today&amp;scope=tasks.deadline&amp;filter[period]=0&amp;filter[type]=0">%%% text Future To dos %%%</a></li>
 %%% endif %%%
 </ul>
 
-<a href="/projects/todo?q=yesterday&amp;scope=deadline&amp;filter[period]=0">%%% text To dos yesterday %%%</a> &middot;
-<a href="/projects/todo?q=tomorrow&amp;scope=deadline&amp;filter[period]=0">%%% text To dos tomorrow %%%</a>
+<a href="%%% path work_tasks_table %%%?q=yesterday&amp;scope=deadline&amp;filter[period]=0">%%% text To dos yesterday %%%</a> &middot;
+<a href="%%% path work_tasks_table %%%?q=tomorrow&amp;scope=deadline&amp;filter[period]=0">%%% text To dos tomorrow %%%</a>
 </section>

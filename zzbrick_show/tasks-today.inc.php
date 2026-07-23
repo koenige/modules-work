@@ -27,12 +27,12 @@ function mod_work_show_tasks_today() {
 		LEFT JOIN tasks_categories USING (task_id)
 		LEFT JOIN categories
 			ON tasks_categories.category_id = categories.category_id
-		WHERE categories.parameters LIKE "&important=1"
+		WHERE categories.parameters LIKE "%&work_tasks_important=1%"
 		AND (ISNULL(deadline) OR deadline != CURDATE())
 		AND ISNULL(done)
 		ORDER BY time, tasks.sequence, priority';
 
-    $data = [];
+	$data = [];
 	foreach ($areas as $index => $area) {
 		$data[$index]['area'] = $area;
 		$data[$index]['tasks'] = wrap_db_fetch($sql[$index], 'task_id');

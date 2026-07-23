@@ -34,8 +34,10 @@ msgid "To do"
 msgstr "Aufgabe"
 
 #: templates/tasks-today.template.txt:18 templates/work-today.template.txt:16
-msgid "%d Projects"
-msgstr "%d Projekte"
+msgid "%d Project"
+msgid_plural "%d Projects"
+msgstr[0] "%d Projekt"
+msgstr[1] "%d Projekte"
 
 #: templates/tasks-today.template.txt:18
 msgid "To dos"

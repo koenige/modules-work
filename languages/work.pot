@@ -29,8 +29,10 @@ msgstr ""
 
 #: templates/tasks-today.template.txt:18
 #: templates/work-today.template.txt:16
-msgid "%d Projects"
-msgstr ""
+msgid "%d Project"
+msgid_plural "%d Projects"
+msgstr[] ""
+msgstr[] ""
 
 #: templates/tasks-today.template.txt:18
 msgid "To dos"
