@@ -22,53 +22,40 @@ function mod_work_work_overview() {
 	$overview = [];
 
 	$page['query_strings'] = ['week', 'year'];
-	// get week of year
 	if (!empty($_GET['week'])) {
 		$week = explode('/', $_GET['week']);
 		$week['year'] = intval($week[0]);
 		$week['week'] = intval($week[1]);
-		// last week
-		if ($week['week'] == 1) {
-			$overview['last_week'] = ($week['year'] - 1).'/53';
-		} else {
-			$overview['last_week'] = $week['year'].'/'.($week['week']-1);
-		}
-		// next week
-		if ($week['week'] == 53) {
-			$overview['next_week'] = ($week['year'] + 1).'/1';
-		} else {
-			$overview['next_week'] = $week['year'].'/'.($week['week']+1);
-		}
 	} else {
-		$week['year'] = date('Y');
+		$week['year'] = date('o');
 		$week['week'] = date('W');
-		$overview['last_week'] = date('Y/W', time() - 60 * 60 * 24 * 7);
-		$overview['next_week'] = date('Y/W', time() + 60 * 60 * 24 * 7);
 	}
-	
-	$sql = 'SELECT ADDDATE("%d-01-01", INTERVAL 7*%d DAY)';
-	$sql = sprintf($sql, $week['year'], $week['week']);
-	$someday_in_week = wrap_db_fetch($sql, '', 'single value');
 
-	$sql = 'SELECT SUBDATE("%s", INTERVAL weekday("%s") DAY) AS begin, 
-		ADDDATE("%s", INTERVAL 6-weekday("%s") DAY) AS end';
-	$sql = sprintf($sql, $someday_in_week, $someday_in_week, $someday_in_week, $someday_in_week);
-	$weekdays = wrap_db_fetch($sql);
+	$monday = (new DateTimeImmutable())->setISODate($week['year'], $week['week'], 1);
+	$week['year'] = (int) $monday->format('o');
+	$week['week'] = (int) $monday->format('W');
+	$weekdays = [
+		'begin' => $monday->format('Y-m-d'),
+		'end' => $monday->modify('+6 days')->format('Y-m-d'),
+	];
+
+	$overview['last_week'] = $monday->modify('-7 days')->format('o/W');
+	$overview['next_week'] = $monday->modify('+7 days')->format('o/W');
 
 	$duration = wrap_date($weekdays['begin'].'/'.$weekdays['end'], 'dates-'.wrap_setting('lang').'-weekday');
 	$page['title'] = wrap_text('Work during week').' '.$week['year'].'/'.$week['week']
 		.' <br>('.$duration.')';
 
+	$yearweek = (int) sprintf('%04d%02d', $week['year'], $week['week']);
 	$sql = 'SELECT event_id, event, identifier
 			, (SELECT SUM(TIMESTAMPDIFF(MINUTE, work_begin, work_end)) FROM worklogs
 				WHERE events.event_id = worklogs.event_id
-				AND YEAR(work_begin) = %d
-				AND WEEK(work_begin, 3) = %d) AS duration
+				AND YEARWEEK(work_begin, 3) = %d) AS duration
 		FROM events
 		HAVING duration > 0
 		ORDER BY event
 	';
-	$sql = sprintf($sql, $week['year'], $week['week']);
+	$sql = sprintf($sql, $yearweek);
 	$overview['work'] = wrap_db_fetch($sql, 'event_id');
 	if (!$overview['work']) {
 		$page['text'] = wrap_template('work-overview', $overview);
