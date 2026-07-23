@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- work module\n"
-"POT-Creation-Date: 2026-07-23 10:14+0000\n"
+"POT-Creation-Date: 2026-07-23 10:48+0000\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -16,18 +16,68 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: templates/tasks-today.template.txt:15
+#: templates/work-overview.template.txt:15
+#: templates/work-today.template.txt:13
+#: zzbrick_tables/worklogs.php:39
+msgid "Project"
+msgstr ""
+
+#: templates/tasks-today.template.txt:15
+msgid "To do"
+msgstr ""
+
+#: templates/tasks-today.template.txt:18
+#: templates/work-today.template.txt:16
+msgid "%d Projects"
+msgstr ""
+
+#: templates/tasks-today.template.txt:18
+msgid "To dos"
+msgstr ""
+
+#: templates/tasks-today.template.txt:26
+msgid "Edit To dos today …"
+msgstr ""
+
+#: templates/tasks-today.template.txt:27
+msgid "Add To do"
+msgstr ""
+
+#: templates/tasks-today.template.txt:31
+msgid "To dos last week"
+msgstr ""
+
+#: templates/tasks-today.template.txt:33
+msgid "To dos this week"
+msgstr ""
+
+#: templates/tasks-today.template.txt:35
+msgid "To dos next week"
+msgstr ""
+
+#: templates/tasks-today.template.txt:38
+msgid "Past To dos"
+msgstr ""
+
+#: templates/tasks-today.template.txt:41
+msgid "Future To dos"
+msgstr ""
+
+#: templates/tasks-today.template.txt:45
+msgid "To dos yesterday"
+msgstr ""
+
+#: templates/tasks-today.template.txt:46
+msgid "To dos tomorrow"
+msgstr ""
+
 #: templates/work-overview.template.txt:12
 msgid "Last week"
 msgstr ""
 
 #: templates/work-overview.template.txt:12
 msgid "Next week"
-msgstr ""
-
-#: templates/work-overview.template.txt:15
-#: templates/work-today.template.txt:13
-#: zzbrick_tables/worklogs.php:39
-msgid "Project"
 msgstr ""
 
 #: templates/work-overview.template.txt:15
@@ -41,10 +91,6 @@ msgstr ""
 
 #: templates/work-today.template.txt:13
 msgid "Δ"
-msgstr ""
-
-#: templates/work-today.template.txt:16
-msgid "%d Projects"
 msgstr ""
 
 #: templates/work-today.template.txt:20
@@ -63,8 +109,16 @@ msgstr ""
 msgid "Show working time yesterday"
 msgstr ""
 
-#: zzbrick_request/work-overview.inc.php:59
+#: zzbrick_request/work-overview.inc.php:46
 msgid "Work during week"
+msgstr ""
+
+#: zzbrick_show/tasks-today.inc.php:17
+msgid "Important"
+msgstr ""
+
+#: zzbrick_show/tasks-today.inc.php:17
+msgid "Today"
 msgstr ""
 
 #: zzbrick_tables/tasks.php:16
