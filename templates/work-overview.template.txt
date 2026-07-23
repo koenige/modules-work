@@ -8,21 +8,21 @@
 # @copyright Copyright © 2012, 2017, 2024-2026 Gustaf Mossakowski
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
+<section class="work">
 <p><a href="?week=%%% item last_week %%%">%%% text Last week %%%</a> | <a href="?week=%%% item next_week %%%">%%% text Next week %%%</a></p>
 %%% if total %%%
-<div id="zzform">
 <table class="data">
-<thead><tr><th colspan="2">%%% text Project %%%</th><th class="number">%%% Text Sum %%%</th></tr></thead>
-<tfoot><tr><td colspan="2">&nbsp;</td><td>%%% item total %%%&nbsp;h</td></tr></tfoot>
+<thead><tr><th colspan="2">%%% text Project %%%</th><th class="number">%%% text Sum %%%</th></tr></thead>
+<tfoot><tr><td colspan="2">&nbsp;</td><td class="number">%%% item total format=duration:minute:H::i %%%</td></tr></tfoot>
 <tbody>
 %%% loop work %%%
 <tr class="%%% loopposition uneven "un" %%%even">
-<td class="projekt"><a href="%%% path events_project identifier %%%">%%% item event %%%</a></td>
-<td class="balken"><span style="width: %%% item css_width %%%px">&nbsp;</span></td>
-<td class="number">%%% item time %%%&nbsp;h</td>
+<td class="project"><a href="%%% path events_project identifier %%%">%%% item event %%%</a></td>
+<td class="bar"><span style="width: %%% item css_width %%%px">&nbsp;</span></td>
+<td class="number">%%% item duration format=duration:minute:H::i %%%</td>
 </tr>
 %%% loop end %%%
 </tbody>
 </table>
-</div>
 %%% endif %%%
+</section>

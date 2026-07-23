@@ -1,0 +1,36 @@
+/*
+ * Cascading Style Sheets (CSS)
+ * for work module
+ *
+ * Part of »Zugzwang Project«
+ * https://www.zugzwang.org/modules/work
+ *
+ * @author Gustaf Mossakowski <gustaf@koenige.org>
+ * @copyright Copyright © 2026 Gustaf Mossakowski
+ * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
+ */
+
+
+.work {
+	--work-table-border-color: #999;
+	--work-bar-background: #C00;
+}
+
+.work .data		{ border-collapse: collapse; }
+.work .data thead th
+				{ border-bottom: 1px solid var(--work-table-border-color); }
+.work .data td, .work .data th
+				{ vertical-align: top; text-align: left; padding: .2rem .5rem .2rem 0; }
+.work .project	{ width: 15rem; }
+.work .data .bar
+				{ background-color: #fff;
+				background-image: repeating-linear-gradient(to right,
+					var(--work-table-border-color) 0,
+					var(--work-table-border-color) 1px,
+					transparent 1px,
+					transparent 100px);
+				background-position: .5em 0;
+				padding: .25rem 1rem .25rem .5rem; min-width: 7.5rem; }
+.work .bar span	{ display: block; background-color: var(--work-bar-background); }
+.work .data .number
+				{ text-align: right; }

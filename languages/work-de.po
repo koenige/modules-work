@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project – Work Module\n"
-"POT-Creation-Date: 2026-07-23 09:08+0000\n"
+"POT-Creation-Date: 2026-07-23 10:14+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Gustaf Mossakowski <gustaf@koenige.org>\n"
 "Language-Team: \n"
@@ -23,11 +23,11 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Generator: Poedit 3.9\n"
 
-#: templates/work-overview.template.txt:11
+#: templates/work-overview.template.txt:12
 msgid "Last week"
 msgstr "Letzte Woche"
 
-#: templates/work-overview.template.txt:11
+#: templates/work-overview.template.txt:12
 msgid "Next week"
 msgstr "Nächste Woche"
 
@@ -35,6 +35,10 @@ msgstr "Nächste Woche"
 #: zzbrick_tables/worklogs.php:39
 msgid "Project"
 msgstr "Projekt"
+
+#: templates/work-overview.template.txt:15
+msgid "Sum"
+msgstr "Summe"
 
 #: templates/work-today.template.txt:13 zzbrick_tables/tasks.php:99
 msgid "Time"
@@ -64,7 +68,7 @@ msgstr "Arbeitszeit hinzufügen"
 msgid "Show working time yesterday"
 msgstr "Zeige Arbeitszeit gestern"
 
-#: zzbrick_request/work-overview.inc.php:58
+#: zzbrick_request/work-overview.inc.php:59
 msgid "Work during week"
 msgstr "Arbeit in der Woche"
 

@@ -42,21 +42,22 @@ function mod_work_work_overview() {
 	} else {
 		$week['year'] = date('Y');
 		$week['week'] = date('W');
-		$overview['last_week'] = date('Y/W', time() - 60*60*24*7);
-		$overview['next_week'] = date('Y/W', time() + 60*60*24*7);
+		$overview['last_week'] = date('Y/W', time() - 60 * 60 * 24 * 7);
+		$overview['next_week'] = date('Y/W', time() + 60 * 60 * 24 * 7);
 	}
 	
-	$sql = 'SELECT adddate("%d-01-01", INTERVAL 7*%d DAY)';
+	$sql = 'SELECT ADDDATE("%d-01-01", INTERVAL 7*%d DAY)';
 	$sql = sprintf($sql, $week['year'], $week['week']);
 	$someday_in_week = wrap_db_fetch($sql, '', 'single value');
 
-	$sql = 'SELECT subdate("%s", INTERVAL weekday("%s") DAY) AS begin, 
-		adddate("%s", INTERVAL 6-weekday("%s") DAY) AS end';
+	$sql = 'SELECT SUBDATE("%s", INTERVAL weekday("%s") DAY) AS begin, 
+		ADDDATE("%s", INTERVAL 6-weekday("%s") DAY) AS end';
 	$sql = sprintf($sql, $someday_in_week, $someday_in_week, $someday_in_week, $someday_in_week);
 	$weekdays = wrap_db_fetch($sql);
 
+	$duration = wrap_date($weekdays['begin'].'/'.$weekdays['end'], 'dates-'.wrap_setting('lang').'-weekday');
 	$page['title'] = wrap_text('Work during week').' '.$week['year'].'/'.$week['week']
-		.' <br>(Mo '.wrap_date($weekdays['begin']).'–So '.wrap_date($weekdays['end']).')';
+		.' <br>('.$duration.')';
 
 	$sql = 'SELECT event_id, event, identifier
 			, (SELECT SUM(TIMESTAMPDIFF(MINUTE, work_begin, work_end)) FROM worklogs
@@ -74,13 +75,11 @@ function mod_work_work_overview() {
 		return $page;
 	}
 
-	$total = 0;
+	$overview['total'] = 0;
 	foreach ($overview['work'] as $index => $time) {
 		$overview['work'][$index]['css_width'] = floor($time['duration'] / 60 * 10);
-		$overview['work'][$index]['time'] = number_format(($time['duration'] / 60), 2, ',', '.');
-		$total += $time['duration'];
+		$overview['total'] += $time['duration'];
 	}
-	$overview['total'] = number_format(($total / 60), 2, ',', '.');
 	$page['text'] = wrap_template('work-overview', $overview);
 	return $page;
 }
