@@ -26,7 +26,7 @@ function mod_work_show_work_today() {
 		ORDER BY work_begin
 	';
 	if (wrap_setting('work_projects')) {
-		$sql = wrap_edit_sql($sql, 'SELECT', 'event_id, event, identifier,');
+		$sql = wrap_edit_sql($sql, 'SELECT', 'event_id, event, identifier');
 		$sql = wrap_edit_sql($sql, 'JOIN', 'LEFT JOIN events USING (event_id)');
 	}
 	$sql = sprintf($sql, $_SESSION['user_id']);

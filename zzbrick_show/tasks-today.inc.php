@@ -30,9 +30,9 @@ function mod_work_show_tasks_today() {
 		AND ISNULL(done)
 		ORDER BY time, tasks.sequence, priority';
 	if (wrap_setting('work_projects')) {
-		$sql['today'] = wrap_edit_sql($sql['today'], 'SELECT', 'event_id, event, identifier,');
+		$sql['today'] = wrap_edit_sql($sql['today'], 'SELECT', 'event_id, event, identifier');
 		$sql['today'] = wrap_edit_sql($sql['today'], 'JOIN', 'LEFT JOIN events USING (event_id)');
-		$sql['important'] = wrap_edit_sql($sql['important'], 'SELECT', 'event_id, event, identifier,');
+		$sql['important'] = wrap_edit_sql($sql['important'], 'SELECT', 'event_id, event, identifier');
 		$sql['important'] = wrap_edit_sql($sql['important'], 'JOIN', 'LEFT JOIN events USING (event_id)');
 	}
 
