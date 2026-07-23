@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- work module\n"
-"POT-Creation-Date: 2026-07-14 17:45+0000\n"
+"POT-Creation-Date: 2026-07-21 13:39+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Gustaf Mossakowski <gustaf@koenige.org>\n"
 "Language-Team: \n"
@@ -25,6 +25,10 @@ msgstr "Protokoll einer Sitzung lesen"
 #: configuration/access.cfg:27
 msgid "Edit minutes of a meeting"
 msgstr "Protokoll einer Sitzung bearbeiten"
+
+#: configuration/package.cfg:13
+msgid "work module"
+msgstr "Arbeitsmodul"
 
 #: configuration/package.cfg:15
 msgid "Tasks, project time tracking, and related reminders"

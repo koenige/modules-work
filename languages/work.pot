@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- work module\n"
-"POT-Creation-Date: 2026-07-14 17:45+0000\n"
+"POT-Creation-Date: 2026-07-23 09:08+0000\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -16,6 +16,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: templates/work-overview.template.txt:11
+msgid "Last week"
+msgstr ""
+
+#: templates/work-overview.template.txt:11
+msgid "Next week"
+msgstr ""
+
+#: templates/work-overview.template.txt:15
 #: templates/work-today.template.txt:13
 #: zzbrick_tables/worklogs.php:39
 msgid "Project"
@@ -48,6 +57,10 @@ msgstr ""
 
 #: templates/work-today.template.txt:31
 msgid "Show working time yesterday"
+msgstr ""
+
+#: zzbrick_request/work-overview.inc.php:58
+msgid "Work during week"
 msgstr ""
 
 #: zzbrick_tables/tasks.php:16
