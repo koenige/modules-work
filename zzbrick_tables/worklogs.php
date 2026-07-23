@@ -41,6 +41,7 @@ $zz['fields'][4]['field_name'] = 'event_id';
 $zz['fields'][4]['type'] = 'select';
 $zz['fields'][4]['sql'] = 'SELECT event_id, event
 	FROM events
+	WHERE event_category_id = /*_ID categories event/project _*/
 	ORDER BY event';
 $zz['fields'][4]['display_field'] = 'event';
 $zz['fields'][4]['link'] = [
@@ -56,6 +57,14 @@ $zz['fields'][4]['add_details_target'] = '_blank';
 $zz['fields'][4]['if']['where']['class'] = 'hidden';
 $zz['fields'][4]['if']['where']['hide_in_list'] = true;
 $zz['fields'][4]['sql_translate'] = ['event_id' => 'events'];
+if (wrap_setting('work_projects')) {
+	$zz['fields'][4]['required'] = true;
+	$zz['fields'][4]['hide_in_form'] = false;
+	$zz['fields'][4]['hide_in_list'] = false;
+} else {
+	$zz['fields'][4]['hide_in_form'] = true;
+	$zz['fields'][4]['hide_in_list'] = true;
+}
 
 $zz['fields'][5]['title'] = 'Description';
 $zz['fields'][5]['field_name'] = 'work';
@@ -131,23 +140,24 @@ $zz['fields'][8]['exclude_from_search'] = true;
 
 
 $zz['sql'] = 'SELECT worklogs.* 
-		, event
-		, events.identifier
 		, CONCAT(YEAR(work_begin), "/", WEEK(work_begin, 1)) AS week
 		, CONCAT(YEAR(work_begin), "/", MONTH(work_begin)) AS month
 		, contacts.contact
 		, (SELECT duration_minutes * 60 FROM worklogs_view WHERE worklogs_view.worklog_id = worklogs.worklog_id) AS duration_minutes
 	FROM worklogs
 	LEFT JOIN contacts USING (contact_id)
-	LEFT JOIN events USING (event_id)
 ';
 $zz['sqlorder'] = ' ORDER BY work_begin DESC';
-$zz['sql_translate'] = ['event_id' => 'events'];
+if (wrap_setting('work_projects')) {
+	$zz['sql'] = wrap_edit_sql($zz['sql'], 'SELECT', 'event, events.identifier');
+	$zz['sql'] = wrap_edit_sql($zz['sql'], 'JOIN', 'LEFT JOIN events USING (event_id)');
+	$zz['sql_translate'] = ['event_id' => 'events'];
+
+	$zz['subtitle']['event_id']['sql'] = $zz['fields'][4]['sql'];
+	$zz['subtitle']['event_id']['var'] = ['event'];
+}
 
 $zz['list']['tfoot'] = true;
-$zz['subtitle']['event_id']['sql'] = $zz['fields'][4]['sql'];
-$zz['subtitle']['event_id']['var'] = ['event'];
-
 $zz['export'][] = 'CSV';
 $zz['record']['copy'] = true;
 

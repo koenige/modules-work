@@ -12,13 +12,13 @@
 %%% loop start %%%
 <table class="tasks">
 <thead>
-<tr><th>%%% text To do %%% – %%% item area %%%</th> <th>%%% text Project %%%</th></tr> 
+<tr><th>%%% text To do %%% – %%% item area %%%</th>%%% if setting work_projects %%% <th>%%% text Project %%%</th>%%% endif %%%</tr> 
 </thead>
 <tfoot>
-<tr><th>%%% item sum_tasks %%%&nbsp;%%% text To dos %%%</th> <th class="number">%%% text "%d Projects" sum_projects %%%</th></tr> 
+<tr><th>%%% item sum_tasks %%%&nbsp;%%% text To dos %%%</th>%%% if setting work_projects %%% <th class="number">%%% text "%d Projects" sum_projects %%%</th>%%% endif %%%</tr> 
 </tfoot>
 %%% loop tasks %%%
-<tr><td title="%%% item task_description format=html_escape %%%"><a href="%%% path work_tasks_table %%%?q=today&amp;scope=deadline&amp;edit=%%% item task_id %%%">%%% item task %%%</a></td> <td><a href="%%% path events_project identifier %%%">%%% item event %%%</a></td></tr>
+<tr><td title="%%% item task_description format=html_escape %%%"><a href="%%% path work_tasks_table %%%?q=today&amp;scope=deadline&amp;edit=%%% item task_id %%%">%%% item task %%%</a></td>%%% if setting work_projects %%% <td>%%% if event %%%<a href="%%% path events_project identifier %%%">%%% item event %%%</a>%%% endif %%%</td>%%% endif %%%</tr>
 %%% loop end %%%
 </table>
 %%% loop end %%%

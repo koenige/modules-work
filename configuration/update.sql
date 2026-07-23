@@ -42,3 +42,6 @@
 /* 2026-05-07-11 */	UPDATE webpages SET content = REPLACE(content, '%%% forms work ', '%%% forms worklogs ') WHERE content LIKE '%\%\%\% forms work %';
 /* 2026-05-07-12 */	UPDATE webpages SET content = REPLACE(content, '%%% tables work ', '%%% tables worklogs ') WHERE content LIKE '%\%\%\% tables work %';
 /* 2026-05-07-13 */	UPDATE webpages SET parameters = REPLACE(parameters, '&route=work_work_project', '&route=work_project_worklogs') WHERE parameters LIKE '%&route=work_work_project%';
+/* 2026-07-23-1 */	ALTER TABLE `worklogs` CHANGE `event_id` `event_id` int unsigned DEFAULT NULL;
+/* 2026-07-23-2 */	ALTER TABLE `tasks` ADD `event_id` int unsigned DEFAULT NULL AFTER `author_contact_id`, ADD KEY `event_id` (`event_id`);
+/* 2026-07-23-3 */	INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'events', 'event_id', (SELECT DATABASE()), 'tasks', 'task_id', 'event_id', 'no-delete');

@@ -67,7 +67,10 @@ $zz['fields'][23]['subselect']['sql'] = 'SELECT task_id, contact
 ';
 $zz['fields'][23]['subselect']['concat_fields'] = ', ';
 
-$zz['fields'][4] = []; // link to projects
+$zz['fields'][4]['field_name'] = 'event_id';
+$zz['fields'][4]['type'] = 'hidden';
+$zz['fields'][4]['hide_in_form'] = true;
+$zz['fields'][4]['hide_in_list'] = true;
 
 $zz['fields'][5]['title_tab'] = '<abbr title="Priority">!</abbr>';
 $zz['fields'][5]['field_name'] = 'priority';
@@ -144,6 +147,12 @@ $zz['sql'] = 'SELECT tasks.*
 	FROM tasks
 ';
 $zz['sqlorder'] = ' ORDER BY sort_order, deadline ASC, time ASC, ISNULL(tasks.sequence), tasks.sequence, priority';
+if (wrap_setting('work_projects')) {
+	$zz['sql'] = wrap_edit_sql($zz['sql'], 'SELECT', 'events.event, events.identifier AS event_identifier');
+	$zz['sql'] = wrap_edit_sql($zz['sql'], 'JOIN', 'LEFT JOIN events USING (event_id)');
+
+	$zz['sql_translate'] = ['event_id' => 'events'];
+}
 
 $zz['hooks']['after_insert'] =
 $zz['hooks']['after_update'] = 'mf_work_task_reminder';
@@ -211,3 +220,76 @@ $zz['filter'][4]['default_selection_if_empty'] = 0;
 
 $zz['setting']['zzform_limit'] = 40;
 $zz['setting']['zzform_search_form_always'] = true;
+
+if (wrap_setting('work_projects')) {
+	$zz['fields'][4]['title'] = 'Project';
+	$zz['fields'][4]['field_name'] = 'event_id';
+	$zz['fields'][4]['type'] = 'select';
+	$zz['fields'][4]['required'] = true;
+	$zz['fields'][4]['sql'] = 'SELECT event_id, event
+		FROM events
+		WHERE event_category_id = /*_ID categories event/project _*/
+		ORDER BY event';
+	if (empty($_GET['where']['event_id'])) {
+		$zz['fields'][4]['if']['add']['sql'] = sprintf('SELECT event_id, event
+			FROM events
+			%s
+			ORDER BY event', !empty($_GET['filter']['event'])
+				? sprintf(' WHERE event_id = %d', $_GET['filter']['event']) : ''
+		);
+	}
+	$zz['fields'][4]['display_field'] = 'event';
+	$zz['fields'][4]['link'] = [
+		'area' => 'events_project',
+		'fields' => ['event_identifier']
+	];
+	$zz['fields'][4]['if']['where']['class'] = 'hidden';
+	$zz['fields'][4]['if']['where']['hide_in_list'] = true;
+	$zz['fields'][4]['hide_in_form'] = false;
+	$zz['fields'][4]['hide_in_list'] = false;
+	$zz['fields'][4]['sql_translate'] = ['event_id' => 'events'];
+
+	$zz['subtitle']['event_id']['sql'] = $zz['fields'][4]['sql'];
+	$zz['subtitle']['event_id']['var'] = ['event'];
+
+	if (empty($_GET['where']['event_id'])) {
+		$where = '';
+		if (!empty($_GET['filter']['type']) AND $_GET['filter']['type'] === 'none') {
+			$where = ' WHERE priority = "none" ';
+		} elseif (!isset($_GET['filter']['type']) OR $_GET['filter']['type'] === '!none') {
+			$where = ' WHERE priority != "none" ';
+		}
+		$zz['filter'][2]['sql'] = 'SELECT event_id, event
+			FROM tasks
+			LEFT JOIN events
+			USING (event_id)
+			'.$where.'
+			GROUP BY event_id, event';
+		$zz['filter'][2]['sql_translate'] = ['event_id' => 'events'];
+
+		$zz['filter'][2]['title'] = wrap_text('Project');
+		$zz['filter'][2]['identifier'] = 'project';
+		$zz['filter'][2]['type'] = 'list';
+		$zz['filter'][2]['field_name'] = 'event_id';
+		$zz['filter'][2]['where'] = 'tasks.event_id';
+	}
+
+	$project_where = '';
+	if (!empty($_GET['where']['event_id']))
+		$project_where = sprintf(' WHERE event_id = %d', $_GET['where']['event_id']);
+
+	$zz['filter'][3]['sql'] = sprintf('SELECT DISTINCT category_id, SUBSTRING(path, 6)
+		FROM tasks_categories
+		LEFT JOIN categories USING (category_id)
+		LEFT JOIN tasks USING (task_id)
+		%s
+		ORDER BY SUBSTRING(path, 6)
+	', $project_where);
+	if (!empty($zz['filter'][2])) {
+		$zz['filter'][3]['depends_on'] = 2;
+	}
+
+	if (!empty($_GET['filter']['project']) OR !empty($_GET['where']['event_id'])) {
+		$zz['list']['group'] = 'priority';
+	}
+}

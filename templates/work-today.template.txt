@@ -10,17 +10,17 @@
 #
 <table>
 <thead>
-<tr><th>%%% text Time %%%</th> <th class="number">%%% text Δ %%%</th> <th>%%% text Project %%%</th></tr> 
+<tr><th>%%% text Time %%%</th> <th class="number">%%% text Δ %%%</th>%%% if setting work_projects %%% <th>%%% text Project %%%</th>%%% endif %%%</tr> 
 </thead>
 <tfoot>
-<tr><th>&nbsp;</th> <th class="number">%%% item sum_duration %%%&nbsp;h</th> <th class="number">%%% text "%d Projects" sum_projects %%%</th></tr> 
+<tr><th>&nbsp;</th> <th class="number">%%% item sum_duration %%%&nbsp;h</th>%%% if setting work_projects %%% <th class="number">%%% text "%d Projects" sum_projects %%%</th>%%% endif %%%</tr> 
 </tfoot>
 <tbody>
 %%% if no_work %%%
-<tr><td colspan="3">%%% text Nothing done so far. %%%</td></tr>
+<tr><td colspan="%%% if setting work_projects %%%3%%% else %%%2%%% endif %%%">%%% text Nothing done so far. %%%</td></tr>
 %%% else %%%
 %%% loop start %%%
-<tr><td title="%%% item work format=html_escape %%%"><a href="%%% path work_worklogs_table %%%?edit=%%% item worklog_id %%%">%%% item begin %%%–%%% item end %%%</a></td> <td class="number">%%% item duration_time %%% h</td> <td><a href="%%% path events_project identifier %%%">%%% item event %%%</a></td></tr>
+<tr><td title="%%% item work format=html_escape %%%"><a href="%%% path work_worklogs_table %%%?edit=%%% item worklog_id %%%">%%% item begin %%%–%%% item end %%%</a></td> <td class="number">%%% item duration_time %%% h</td>%%% if setting work_projects %%% <td>%%% if event %%%<a href="%%% path events_project identifier %%%">%%% item event %%%</a>%%% endif %%%</td>%%% endif %%%</tr>
 %%% loop end %%%
 %%% endif %%%
 </tbody>

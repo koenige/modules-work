@@ -23,13 +23,16 @@ CREATE TABLE `tasks` (
   `created` date DEFAULT NULL,
   `done` date DEFAULT NULL,
   `author_contact_id` int unsigned NOT NULL,
+  `event_id` int unsigned DEFAULT NULL,
   PRIMARY KEY (`task_id`),
   KEY `priority` (`priority`),
   KEY `author_contact_id` (`author_contact_id`),
-  KEY `deadline` (`deadline`)
+  KEY `deadline` (`deadline`),
+  KEY `event_id` (`event_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'contacts', 'contact_id', (SELECT DATABASE()), 'tasks', 'task_id', 'author_contact_id', 'delete');
+INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'events', 'event_id', (SELECT DATABASE()), 'tasks', 'task_id', 'event_id', 'no-delete');
 
 
 -- tasks_categories --
@@ -65,7 +68,7 @@ CREATE TABLE `worklogs` (
   `worklog_id` int unsigned NOT NULL AUTO_INCREMENT,
   `work_begin` datetime NOT NULL,
   `work_end` datetime NOT NULL,
-  `event_id` int unsigned NOT NULL,
+  `event_id` int unsigned DEFAULT NULL,
   `work` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `contact_id` int unsigned NOT NULL,
   PRIMARY KEY (`worklog_id`),

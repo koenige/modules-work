@@ -15,15 +15,13 @@
 
 function mod_work_show_tasks_today() {
 	$areas = ['today' => wrap_text('Today'), 'important' => wrap_text('Important')];
-	$sql['today'] = 'SELECT task_id, task, task_description, event, event_id, identifier
+	$sql['today'] = 'SELECT task_id, task, task_description
 		FROM tasks
-		LEFT JOIN events USING (event_id)
 		WHERE deadline = CURDATE()
 		AND ISNULL(done)
 		ORDER BY time, tasks.sequence, priority';
-	$sql['important'] = 'SELECT task_id, task, task_description, event, event_id, identifier
+	$sql['important'] = 'SELECT task_id, task, task_description
 		FROM tasks
-		LEFT JOIN events USING (event_id)
 		LEFT JOIN tasks_categories USING (task_id)
 		LEFT JOIN categories
 			ON tasks_categories.category_id = categories.category_id
@@ -31,6 +29,12 @@ function mod_work_show_tasks_today() {
 		AND (ISNULL(deadline) OR deadline != CURDATE())
 		AND ISNULL(done)
 		ORDER BY time, tasks.sequence, priority';
+	if (wrap_setting('work_projects')) {
+		$sql['today'] = wrap_edit_sql($sql['today'], 'SELECT', 'event_id, event, identifier,');
+		$sql['today'] = wrap_edit_sql($sql['today'], 'JOIN', 'LEFT JOIN events USING (event_id)');
+		$sql['important'] = wrap_edit_sql($sql['important'], 'SELECT', 'event_id, event, identifier,');
+		$sql['important'] = wrap_edit_sql($sql['important'], 'JOIN', 'LEFT JOIN events USING (event_id)');
+	}
 
 	$data = [];
 	foreach ($areas as $index => $area) {
@@ -38,11 +42,14 @@ function mod_work_show_tasks_today() {
 		$data[$index]['tasks'] = wrap_db_fetch($sql[$index], 'task_id');
 		$data[$index]['sum_tasks'] = count($data[$index]['tasks']);
 		$data[$index]['sum_projects'] = [];
-		foreach ($data[$index]['tasks'] as $id => $line) {
-			if (!is_numeric($id)) continue;
-			$data[$index]['sum_projects'][$line['event_id']] = $line['event_id'];
+		if (wrap_setting('work_projects')) {
+			foreach ($data[$index]['tasks'] as $id => $line) {
+				if (!is_numeric($id)) continue;
+				if (empty($line['event_id'])) continue;
+				$data[$index]['sum_projects'][$line['event_id']] = $line['event_id'];
+			}
+			$data[$index]['sum_projects'] = count($data[$index]['sum_projects']);
 		}
-		$data[$index]['sum_projects'] = count($data[$index]['sum_projects']);
 	}
 	$data = array_values($data);
 

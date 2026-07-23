@@ -13,6 +13,7 @@
  */
 
 
+if (!wrap_setting('work_projects')) wrap_quit(404);
 if (empty($brick['data']['event_id'])) wrap_quit(404);
 
 $zz = zzform_include('worklogs');

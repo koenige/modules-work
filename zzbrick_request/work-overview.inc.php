@@ -19,6 +19,8 @@
  * @return array
  */
 function mod_work_work_overview() {
+	if (!wrap_setting('work_projects')) wrap_quit(404);
+
 	$overview = [];
 
 	$page['query_strings'] = ['week', 'year'];
