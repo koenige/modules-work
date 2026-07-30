@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- work module\n"
-"POT-Creation-Date: 2026-07-23 11:00+0000\n"
+"POT-Creation-Date: 2026-07-30 16:07+0000\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -53,5 +53,9 @@ msgid "Initial installation date of work module (for updates)"
 msgstr ""
 
 #: configuration/settings.cfg:24
+msgid "Link tasks and worklogs to projects (requires events module)"
+msgstr ""
+
+#: configuration/settings.cfg:29
 msgid "Task tag categories for the “Important” block on tasks today"
 msgstr ""
