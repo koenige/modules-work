@@ -1,0 +1,17 @@
+{
+    "tasks": {
+        "title": "Tasks"
+    },
+    "tasks_categories": {
+        "title": "Task Categories"
+    },
+    "tasks_contacts": {
+        "title": "Tasks/Contacts"
+    },
+    "worklogs": {
+        "title": "Work logs"
+    },
+    "worklogs_categories": {
+        "title": "Work log categories"
+    }
+}
