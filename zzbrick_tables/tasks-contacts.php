@@ -8,12 +8,12 @@
  * https://www.zugzwang.org/modules/work
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2012, 2014, 2017, 2019-2022, 2024 Gustaf Mossakowski
+ * @copyright Copyright © 2012, 2014, 2017, 2019-2022, 2024-2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
 
-$zz['title'] = 'Tasks/Contacts';
+$zz['title'] = 'Contacts per Task';
 $zz['table'] = 'tasks_contacts';
 
 $zz['fields'][1]['title'] = 'ID';

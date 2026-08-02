@@ -297,7 +297,7 @@ msgid "Category"
 msgstr ""
 
 #: zzbrick_tables/tasks-contacts.php:16
-msgid "Tasks/Contacts"
+msgid "Contacts per Task"
 msgstr ""
 
 #: zzbrick_tables/tasks-contacts.php:30
