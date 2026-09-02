@@ -45,3 +45,4 @@
 /* 2026-07-23-1 */	ALTER TABLE `worklogs` CHANGE `event_id` `event_id` int unsigned DEFAULT NULL;
 /* 2026-07-23-2 */	ALTER TABLE `tasks` ADD `event_id` int unsigned DEFAULT NULL AFTER `author_contact_id`, ADD KEY `event_id` (`event_id`);
 /* 2026-07-23-3 */	INSERT INTO _relations (`master_db`, `master_table`, `master_field`, `detail_db`, `detail_table`, `detail_id_field`, `detail_field`, `delete`) VALUES ((SELECT DATABASE()), 'events', 'event_id', (SELECT DATABASE()), 'tasks', 'task_id', 'event_id', 'no-delete');
+/* 2026-09-02-1 */	ALTER TABLE `worklogs` ADD `billing_work_begin` datetime DEFAULT NULL AFTER `work_end`, ADD `billing_work_end` datetime DEFAULT NULL AFTER `billing_work_begin`, ADD `hide_in_billing` enum('yes','no') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no' AFTER `billing_work_end`;
