@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- work module\n"
-"POT-Creation-Date: 2026-09-02 13:16+0000\n"
+"POT-Creation-Date: 2026-09-06 20:51+0000\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -342,7 +342,7 @@ msgstr ""
 msgid "Pos."
 msgstr ""
 
-#: zzbrick_tables/worklogs.php:116
+#: zzbrick_tables/worklogs.php:115
 msgid "Billing"
 msgstr ""
 

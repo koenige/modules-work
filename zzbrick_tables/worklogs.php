@@ -112,8 +112,8 @@ if (wrap_package('finance')) {
 	    LEFT JOIN documents USING (document_id)';
 	$zz['fields'][13]['subselect']['concat_fields'] = '/';
 	$zz['fields'][13]['hide_in_list_if_empty'] = true;
+	$zz['fields'][13]['separator_before'] = 'text <h3>'.wrap_text('Billing').'</h3>';
 
-	$zz['fields'][14]['separator_before'] = 'text <h3>'.wrap_text('Billing').'</h3>';
 	$zz['fields'][14]['title'] = 'Start';
 	$zz['fields'][14]['field_name'] = 'billing_work_begin';
 	$zz['fields'][14]['type'] = 'datetime';
