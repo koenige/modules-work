@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- work module\n"
-"POT-Creation-Date: 2026-10-05 11:05+0000\n"
+"POT-Creation-Date: 2026-10-05 13:47+0000\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -113,16 +113,19 @@ msgstr ""
 msgid "Show working time yesterday"
 msgstr ""
 
+#: templates/worklog-calendars.template.txt:18
+msgid "All"
+msgstr ""
+
 #: zzbrick_request/work-overview.inc.php:48
 msgid "Work during week"
 msgstr ""
 
-#: zzbrick_request/worklog-ics.inc.php:41
+#: zzbrick_request/worklog-ics.inc.php:42
 msgid "Your subscription link is not valid."
 msgstr ""
 
-#: zzbrick_request/worklog-ics.inc.php:66
-#: zzbrick_request/worklog-ics.inc.php:100
+#: zzbrick_request/worklog-ics.inc.php:72
 #: zzbrick_tables/worklogs.php:17
 msgid "Work logs"
 msgstr ""

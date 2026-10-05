@@ -10,6 +10,12 @@
 #
 <ul class="worklog-calendars">
 %%% loop start %%%
-<li><a href="webcal://%%% setting hostname %%%%%% path work_worklog_ics username absolute=1 %%%?hash=%%% item hash %%%">%%% item contact %%%</a> (<a href="%%% path work_worklog_ics username %%%?hash=%%% item hash %%%">ICS</a>)</li>
+<li><a href="webcal://%%% setting hostname %%%%%% path work_worklog_ics username absolute=1 %%%?hash=%%% item hash %%%">%%% item contact %%%</a> (<a href="%%% path work_worklog_ics username %%%?hash=%%% item hash %%%">ICS</a>)
+<ul>
+%%% loop years %%%
+<li><a href="%%% path work_worklog_ics username year %%%?hash=%%% item hash %%%">%%% item year %%%</a></li>
+%%% loop end %%%
+<li><a href="%%% path work_worklog_ics username all %%%?hash=%%% item hash %%%">%%% text All %%%</a></li>
+</ul></li>
 %%% loop end %%%
 </ul>

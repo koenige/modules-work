@@ -16,14 +16,15 @@
 use Kigkonsult\Icalcreator\Vcalendar;
 
 /**
- * Subscription feed of one login’s work logs (username in URL, hash in query string).
+ * Work log feed of one login (username in URL, hash in query string).
+ * Optional second segment: year (by work_end) or `all`; default is current year.
  *
- * @param array $params one segment: login username
+ * @param array $params [0] login username, [1] year or `all` (optional)
  * @return array|false
  */
 function mod_work_worklog_ics($params) {
-	if (count($params) !== 1) return false;
-
+	if (count($params) < 1 OR count($params) > 2) return false;
+	$year = $params[1] ?? date('Y');
 
 	$sql = 'SELECT contact_id, contact, username
 		FROM logins
@@ -56,8 +57,12 @@ function mod_work_worklog_ics($params) {
 		LEFT JOIN events USING (event_id)
 		WHERE worklogs.contact_id = %s
 		AND worklogs.work_begin <> worklogs.work_end
+		%s
 		ORDER BY IFNULL(work_begin, work_end) DESC';
-	$sql = sprintf($sql, $contact['contact_id']);
+	$sql = sprintf($sql
+		, $contact['contact_id']
+		, $year === 'all' ? '' : sprintf('AND YEAR(work_end) = %d', $year)
+	);
 	$events = wrap_db_fetch($sql, 'worklog_id');
 	if (!$events) return false;
 
@@ -65,6 +70,7 @@ function mod_work_worklog_ics($params) {
 
 	$tz = wrap_setting('timezone');
 	$cal_title = wrap_text('Work logs').' '.$contact['contact'];
+	if ($year !== 'all') $cal_title .= ' '.$year;
 
 	$v = Vcalendar::factory([Vcalendar::UNIQUE_ID => wrap_setting('hostname')]);
 	$v->setMethod(Vcalendar::PUBLISH);
@@ -99,10 +105,7 @@ function mod_work_worklog_ics($params) {
 
 	$page['text'] = $v->createCalendar();
 	$page['content_type'] = 'ics';
-	$page['headers']['filename'] = sprintf('%s %s.ics'
-		, wrap_text('Work logs')
-		, html_entity_decode($contact['contact'], ENT_QUOTES, 'utf-8')
-	);
+	$page['headers']['filename'] = html_entity_decode($cal_title, ENT_QUOTES, 'utf-8').'.ics';
 	$page['query_strings'] = ['hash'];
 	return $page;
 }

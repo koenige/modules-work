@@ -14,7 +14,8 @@
 
 
 /**
- * List logins with signed URLs for each person’s work log ICS feed.
+ * List logins with signed URLs for each person’s work log ICS feed,
+ * subscription (current year) plus one static file per year and `all`.
  *
  * @return array
  */
@@ -25,11 +26,25 @@ function mod_work_worklog_calendars() {
 		ORDER BY contact';
 	$worklog_calendars = wrap_db_fetch($sql, 'contact_id');
 
+	$sql = 'SELECT DISTINCT contact_id, YEAR(work_end) AS year
+		FROM worklogs
+		WHERE work_begin <> work_end
+		ORDER BY year DESC';
+	$years = wrap_db_fetch($sql, ['contact_id', 'year'], 'key/values');
+
 	foreach ($worklog_calendars as $contact_id => $contact) {
-		$worklog_calendars[$contact_id]['hash'] = wrap_set_hash(
+		$hash = wrap_set_hash(
 			$contact['contact_id'].'/'.$contact['username'],
 			'work_worklog_ics_secret_key'
 		);
+		$worklog_calendars[$contact_id]['hash'] = $hash;
+		foreach ($years[$contact_id] ?? [] as $year) {
+			$worklog_calendars[$contact_id]['years'][] = [
+				'year' => $year,
+				'username' => $contact['username'],
+				'hash' => $hash
+			];
+		}
 	}
 
 	$page['text'] = wrap_template('worklog-calendars', $worklog_calendars);
