@@ -55,6 +55,7 @@ function mod_work_worklog_ics($params) {
 		FROM worklogs
 		LEFT JOIN events USING (event_id)
 		WHERE worklogs.contact_id = %s
+		AND worklogs.work_begin <> worklogs.work_end
 		ORDER BY IFNULL(work_begin, work_end) DESC';
 	$sql = sprintf($sql, $contact['contact_id']);
 	$events = wrap_db_fetch($sql, 'worklog_id');
@@ -93,6 +94,8 @@ function mod_work_worklog_ics($params) {
 
 		$e->setUid('work-'.$event['worklog_id'].'@'.wrap_setting('site'));
 	}
+
+	$v->vtimezonePopulate();
 
 	$page['text'] = $v->createCalendar();
 	$page['content_type'] = 'ics';
