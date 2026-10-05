@@ -1,0 +1,15 @@
+# work module
+# Template for work log iCal subscription links (per login)
+#
+# Part of »Zugzwang Project«
+# https://www.zugzwang.org/modules/work
+#
+# @author Gustaf Mossakowski <gustaf@koenige.org>
+# @copyright Copyright © 2017, 2026 Gustaf Mossakowski
+# @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
+#
+<ul class="worklog-calendars">
+%%% loop start %%%
+<li><a href="webcal://%%% setting hostname %%%%%% path work_worklog_ics username absolute=1 %%%?hash=%%% item hash %%%">%%% item contact %%%</a> (<a href="%%% path work_worklog_ics username %%%?hash=%%% item hash %%%">ICS</a>)</li>
+%%% loop end %%%
+</ul>

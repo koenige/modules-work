@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- work module\n"
-"POT-Creation-Date: 2026-07-31 07:11+0000\n"
+"POT-Creation-Date: 2026-10-05 11:05+0000\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -37,6 +37,10 @@ msgid "Work logs list per project"
 msgstr ""
 
 #: configuration/routes.cfg:27
+msgid "Work log iCal feed (subscription URL)"
+msgstr ""
+
+#: configuration/routes.cfg:33
 msgid "Worklogs table"
 msgstr ""
 
@@ -50,4 +54,16 @@ msgstr ""
 
 #: configuration/settings.cfg:29
 msgid "Task tag categories for the “Important” block on tasks today"
+msgstr ""
+
+#: configuration/settings.cfg:36
+msgid "Default length in minutes for a work log iCal entry when end time is missing"
+msgstr ""
+
+#: configuration/settings.cfg:41
+msgid "Secret key used to sign work log iCal subscription URLs (access without login)"
+msgstr ""
+
+#: configuration/settings.cfg:46
+msgid "Timeframe in minutes during which each work log iCal subscription link stays valid"
 msgstr ""
