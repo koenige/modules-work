@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Zugzwang Project -- work module\n"
-"POT-Creation-Date: 2026-10-05 13:47+0000\n"
+"POT-Creation-Date: 2026-11-17 15:36+0000\n"
 "PO-Revision-Date: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -224,12 +224,12 @@ msgid "Reminder"
 msgstr ""
 
 #: zzbrick_tables/tasks.php:133
-#: zzbrick_tables/worklogs.php:136
+#: zzbrick_tables/worklogs.php:134
 msgid "no"
 msgstr ""
 
 #: zzbrick_tables/tasks.php:133
-#: zzbrick_tables/worklogs.php:136
+#: zzbrick_tables/worklogs.php:134
 msgid "yes"
 msgstr ""
 
@@ -262,7 +262,7 @@ msgid "done"
 msgstr ""
 
 #: zzbrick_tables/tasks.php:186
-#: zzbrick_tables/worklogs.php:219
+#: zzbrick_tables/worklogs.php:217
 msgid "Tag"
 msgstr ""
 
@@ -325,7 +325,7 @@ msgid "Start"
 msgstr ""
 
 #: zzbrick_tables/worklogs.php:30
-#: zzbrick_tables/worklogs.php:124
+#: zzbrick_tables/worklogs.php:123
 msgid "End"
 msgstr ""
 
@@ -355,44 +355,44 @@ msgstr ""
 msgid "Billing"
 msgstr ""
 
-#: zzbrick_tables/worklogs.php:130
+#: zzbrick_tables/worklogs.php:128
 msgid "The billing end must be after the billing start."
 msgstr ""
 
-#: zzbrick_tables/worklogs.php:133
+#: zzbrick_tables/worklogs.php:131
 msgid "Hide?"
 msgstr ""
 
-#: zzbrick_tables/worklogs.php:138
+#: zzbrick_tables/worklogs.php:136
 msgid "Times not shown on invoice; duration still billed."
 msgstr ""
 
-#: zzbrick_tables/worklogs.php:142
+#: zzbrick_tables/worklogs.php:140
 msgid "Δ Time"
 msgstr ""
 
-#: zzbrick_tables/worklogs.php:154
+#: zzbrick_tables/worklogs.php:152
 msgid "Week"
 msgstr ""
 
-#: zzbrick_tables/worklogs.php:160
-#: zzbrick_tables/worklogs.php:210
+#: zzbrick_tables/worklogs.php:158
+#: zzbrick_tables/worklogs.php:208
 msgid "Month"
 msgstr ""
 
-#: zzbrick_tables/worklogs.php:197
+#: zzbrick_tables/worklogs.php:195
 msgid "Year"
 msgstr ""
 
-#: zzbrick_tables/worklogs.php:239
+#: zzbrick_tables/worklogs.php:237
 msgid "Positions"
 msgstr ""
 
-#: zzbrick_tables/worklogs.php:245
+#: zzbrick_tables/worklogs.php:243
 msgid "without Positions"
 msgstr ""
 
-#: zzbrick_tables/worklogs.php:246
+#: zzbrick_tables/worklogs.php:244
 msgid "with Positions"
 msgstr ""
 

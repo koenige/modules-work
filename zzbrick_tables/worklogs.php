@@ -118,14 +118,12 @@ if (wrap_package('finance')) {
 	$zz['fields'][14]['field_name'] = 'billing_work_begin';
 	$zz['fields'][14]['type'] = 'datetime';
 	$zz['fields'][14]['round_date'] = true;
-	$zz['fields'][14]['buttons'][] = 'round_date';
 	$zz['fields'][14]['hide_in_list'] = true;
 
 	$zz['fields'][15]['title'] = 'End';
 	$zz['fields'][15]['field_name'] = 'billing_work_end';
 	$zz['fields'][15]['type'] = 'datetime';
 	$zz['fields'][15]['round_date'] = true;
-	$zz['fields'][15]['buttons'][] = 'round_date';
 	$zz['fields'][15]['validate']['>='] = ['billing_work_begin'];
 	$zz['fields'][15]['validate_msg']['>='] = 'The billing end must be after the billing start.';
 	$zz['fields'][15]['hide_in_list'] = true;
