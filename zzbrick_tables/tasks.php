@@ -240,7 +240,7 @@ if (wrap_setting('work_projects')) {
 	}
 	$zz['fields'][4]['display_field'] = 'event';
 	$zz['fields'][4]['link'] = [
-		'area' => 'events_project',
+		'route' => 'events_project',
 		'fields' => ['event_identifier']
 	];
 	$zz['fields'][4]['if']['where']['class'] = 'hidden';

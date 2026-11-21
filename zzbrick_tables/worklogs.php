@@ -45,7 +45,7 @@ $zz['fields'][4]['sql'] = 'SELECT event_id, event
 	ORDER BY event';
 $zz['fields'][4]['display_field'] = 'event';
 $zz['fields'][4]['link'] = [
-	'area' => 'events_project',
+	'route' => 'events_project',
 	'fields' => ['identifier']
 ];
 $zz['fields'][4]['link_title'] = [
